@@ -67,5 +67,5 @@ import { BsSearch } from 'react-icons/bs'
 
 // save colors in css variables
 // :root {
-//   --blue: #color code, 
+//   --blue: #color code,
 // }
