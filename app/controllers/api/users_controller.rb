@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  wrap_parameters include: User.attribute_names + ['password']
+  wrap_parameters :user, include: [:email, :first_name, :last_name] + ['password']
   # overrides what keys i want Rails to auto nest in requests to sign up that's not technically a User attribute (password_digest is)
 
   def create

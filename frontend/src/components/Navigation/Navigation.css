@@ -1,4 +1,75 @@
-.nav-container {
+body {
+  font-family: "Neue Plak", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: white;
+}
+
+.header {
+  background: white;
+  padding: 5px 0;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.logo-search {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  display: flex;
+  width: 100%;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-input {
+  padding-left: 35px;
+}
+
+.login-wrapper,
+.signup-wrapper {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.nav-link:hover {
+  background-color: lightgrey
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  background-color: transparent;
+  margin-left: 1rem;
+}
+
+/* .nav-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -30,14 +101,7 @@
 
 .search-icon {
   margin-right: 0.5rem;
-}
-
-.logo {
-  height: 50px;
-  width: auto;
-  background-color: transparent;
-  margin-left: 1rem;
-}
+} */
 
 /* .profile-dropdown {
   position: absolute;

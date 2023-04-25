@@ -43,6 +43,19 @@ function SignupFormPage() {
     }
   };
 
+  const handleDemoSignup = () => {
+    // Set the pre-filled demo user credentials
+    const demoUser = {
+      email: "demo3@user.io",
+      firstName: "Demo",
+      lastName: "User",
+      password: "demopassword",
+    };
+
+    // Dispatch the signup action with the demo user credentials
+    dispatch(sessionActions.signup(demoUser));
+  };
+
   return (
     <>
       <div className="split-screen">
@@ -100,6 +113,7 @@ function SignupFormPage() {
                 />
               </label>
               <button type="submit">Create account</button>
+              <button type="button" onClick={handleDemoSignup}>Sign up as demo user</button>
             </form>
           </div>
         </div>

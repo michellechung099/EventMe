@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.32646bb1.css",
+    "main.js": "/static/js/main.97e55932.js",
+    "static/media/signUp.png": "/static/media/signUp.cc2252572f59127d5134.png",
+    "static/media/home.png": "/static/media/home.99daeffcaaf3250053b6.png",
+    "static/media/logIn.png": "/static/media/logIn.1df02219c667d3f7609e.png",
+    "static/media/eventbriteLogo.png": "/static/media/eventbriteLogo.e07c4f5e5444a38bc321.png",
+    "index.html": "/index.html",
+    "main.32646bb1.css.map": "/static/css/main.32646bb1.css.map",
+    "main.97e55932.js.map": "/static/js/main.97e55932.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32646bb1.css",
+    "static/js/main.97e55932.js"
+  ]
+}

@@ -17,7 +17,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 function Root() {
-  console.log("hello")
   return (
     <Provider store={store}>
       <BrowserRouter>
