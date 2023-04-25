@@ -1,0 +1,51 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.session-links {
+  display: flex;
+  gap: 1rem;
+  margin-right: 5px;
+}
+
+.nav-link:hover {
+  color: grey;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-icon {
+  margin-right: 0.5rem;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  background-color: transparent;
+  margin-left: 1rem;
+}
+
+/* .profile-dropdown {
+  position: absolute;
+}
+
+.profile-dropdown-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+} */
