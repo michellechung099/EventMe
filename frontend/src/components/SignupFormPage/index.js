@@ -44,16 +44,14 @@ function SignupFormPage() {
   };
 
   const handleDemoSignup = () => {
-    // Set the pre-filled demo user credentials
     const demoUser = {
       email: "demo3@user.io",
       firstName: "Demo",
       lastName: "User",
       password: "demopassword",
     };
-
-    // Dispatch the signup action with the demo user credentials
-    dispatch(sessionActions.signup(demoUser));
+    // Dispatch the login action with the demo user credentials
+    return dispatch(sessionActions.login(demoUser));
   };
 
   return (

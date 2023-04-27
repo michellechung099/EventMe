@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: "Neue Plak", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -60,7 +60,7 @@ body {
 
 .nav-link:hover {
   background-color: lightgrey
-}
+} */
 
 .logo {
   height: 50px;
@@ -69,7 +69,7 @@ body {
   margin-left: 1rem;
 }
 
-/* .nav-container {
+.nav-container {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -80,7 +80,6 @@ body {
 
 .session-links {
   display: flex;
-  gap: 1rem;
   margin-right: 5px;
 }
 
@@ -101,7 +100,7 @@ body {
 
 .search-icon {
   margin-right: 0.5rem;
-} */
+}
 
 /* .profile-dropdown {
   position: absolute;

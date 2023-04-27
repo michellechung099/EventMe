@@ -1,0 +1,36 @@
+.event-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.bucket-content {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bucket-header {
+  background-color: #f7f7f7;
+  padding: 1rem;
+}
+
+.bucket-text {
+  font-size: 1.25rem;
+  font-weight: bold; 
+}
+
+.bucket-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+  justify-content: center;
+}
+
+.header-image {
+  display: block;
+  max-height: 30vh;
+  max-width: 100%;
+  margin-bottom: 2rem;
+}

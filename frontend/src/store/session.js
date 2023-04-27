@@ -72,14 +72,6 @@ export const logout = () => async (dispatch) => {
   return response;
 };
 
-// export const destroyDemoUser = (email) => async dispatch => {
-//   const res = await csrfFetch("/api/users/destroy_demo", {
-//     method: "DELETE"
-
-//   });
-
-// }
-
 const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser"))
 };

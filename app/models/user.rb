@@ -24,6 +24,9 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :events,
+    dependent: :destroy
+
   def self.find_by_credentials(email, password)
     # `email` if `credential` matches `URI::MailTo::EMAIL_REGEXP`
     # find the user whose email/username is equal to `credential`
@@ -64,5 +67,3 @@ class User < ApplicationRecord
     self.session_token ||= generate_unique_session_token
   end
 end
-
-

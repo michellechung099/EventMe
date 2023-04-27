@@ -37,7 +37,7 @@ module Eventbrite
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-      key: '_auth_me_session',
+      key: '_event_me_session',
       # name of the session cookie
       same_site: :lax,
       # specifies restrictions on sending the cookie along with requests from third-party sites (behavior that could expose app to certain CSRF attacks) -> cookie's level of cross-site access (:lax -> cookie will be sent with cross-site requests only if the request is initiated by the same-site)

@@ -25,8 +25,26 @@ function Navigation() {
   }
 
   return (
-    <>
-      <header className="header">
+      <>
+      <ul className="nav-container">
+        <li>
+          <NavLink exact to="/">
+            <img src={eventbriteLogo} alt="logo" className="logo"/>
+          </NavLink>
+        </li>
+        <li className="search-bar">
+          <AiOutlineSearch className="search-icon"/>
+          <input type="text" placeholder="search events" className="search-input" />
+        </li>
+        <li className="session-links">{sessionLinks}</li>
+      </ul>
+    </>
+  );
+}
+
+export default Navigation;
+
+{/* <header className="header">
         <nav className="header-nav">
           <ul className="nav-list">
             <li className="logo-search">
@@ -51,25 +69,4 @@ function Navigation() {
             </li>
           </ul>
         </nav>
-      </header>
-    </>
-  );
-}
-
-export default Navigation;
-
-
-{/* <>
-<ul className="nav-container">
-  <li>
-    <NavLink exact to="/">
-      <img src={eventbriteLogo} alt="logo" className="logo"/>
-    </NavLink>
-  </li>
-  <li className="search-bar">
-    <AiOutlineSearch className="search-icon"/>
-    <input type="text" placeholder="search events" className="search-input" />
-  </li>
-  <li className="session-links">{sessionLinks}</li>
-</ul>
-</> */}
+      </header> */}

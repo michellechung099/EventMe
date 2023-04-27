@@ -2,8 +2,8 @@
   "dependencies": {
     "react-icons": "^4.8.0"
   },
-  "name": "eventbrite",
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "name": "eventme",
+  "description": "event creation and search app based on location.",
   "version": "1.0.0",
   "directories": {
     "lib": "lib"
