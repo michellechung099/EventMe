@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import EventIndexPage from "./components/EventIndexPage";
 import EventShowPage from "./components/EventShowPage";
+import EventFormPage from "./components/EventFormPage";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <EventIndexPage />
+        </Route>
+        <Route exact path="/events/new">
+          <EventFormPage />
         </Route>
         <Route exact path="/events/:eventId">
           <EventShowPage />

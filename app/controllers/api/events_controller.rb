@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
   before_action :require_logged_in, only: :create
-  wrap_parameters include: Event.attribute_names + [:photo]
+  wrap_parameters include: Event.attribute_names + [:photo, :userId,:startTime, :endTime, :ticketQuantity], format: :multipart_form
 
   def index
     # render all events under a key of events
@@ -39,7 +39,8 @@ class Api::EventsController < ApplicationController
       :recurring,
       :summary,
       :ticket_quantity,
-      :photo
+      :photo,
+      :description
     )
   end
 end

@@ -1,114 +1,89 @@
-/* body {
-  font-family: "Neue Plak", sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+.nav-header {
+  /* border: solid blue 5px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-size: 16px;
-  font-weight: 400;
-  background: white;
+  justify-content: space-around;
 }
 
-.header {
-  background: white;
-  padding: 5px 0;
-}
-
-.nav-list {
-  display: flex;
+.left {
+  /* border: solid red 5px; */
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-}
-
-.logo-search {
-  display: flex;
-  align-items: center;
-}
-
-.header-nav {
-  display: flex;
-  width: 100%;
 }
 
 .search-bar {
-  position: relative;
+  /* border: solid purple 5px; */
+  display: flex;
+  flex: 1;
+  background-color: #f8f7fa;
+  height: 46px !important;
+  align-items: center;
+}
+
+.icon {
+  /* border: solid yellow 5px; */
 }
 
 .search-icon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.search {
+  /* border: solid orange 5px; */
 }
 
 .search-input {
-  padding-left: 35px;
+  border: none;
+  outline: none;
+  background-color: #f8f7fa;
+  margin-left: 10px;
 }
 
-.login-wrapper,
-.signup-wrapper {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: black;
-  display: inline-block;
-  padding: 5px 10px;
-}
-
-.nav-link:hover {
-  background-color: lightgrey
-} */
-
-.logo {
-  height: 50px;
-  width: auto;
-  background-color: transparent;
-  margin-left: 1rem;
-}
-
-.nav-container {
+.nav-links {
+  /* border: solid green 5px; */
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-  list-style-type: none;
-  padding: 0;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.nav-links li {
+  display: flex;
+  /* border: solid pink 5px; */
+  /* margin-right: 10px; */
+  padding: 0 13px;
+  font-size: 13px;
+}
+
+.nav-links li>a {
+  color: #3D64FF;
+}
+
+.nav-links :last-child a {
+  color: #39364f;
+}
+
+.create-an-event {
+  flex: 1;
 }
 
 .session-links {
-  display: flex;
-  margin-right: 5px;
+  /* margin-left: 20px; */
 }
 
-.nav-link:hover {
-  color: grey;
+ul {
+  list-style-type: none;
 }
 
-.search-bar {
-  display: flex;
-  align-items: center;
+.logo {
+  max-width: 120px;
+  height: auto;
+  margin: 10px 10px 0 10px;
 }
-
-.search-input {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.search-icon {
-  margin-right: 0.5rem;
-}
-
-/* .profile-dropdown {
-  position: absolute;
-}
-
-.profile-dropdown-item {
-  padding: 8px 12px;
-  cursor: pointer;
-  width: 100%;
-  text-align: left;
-} */

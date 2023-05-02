@@ -7,20 +7,15 @@
 // CRUD focus
 // creation of an event
 
-
 // feature list
 // make likes a separate feature
 
-
 // bonus : make categories a bonus feature
-
 
 // Form for an event:
 
-
 // React date range picker (library)
 // input type: "date" and "time" separately (manual)
-
 
 // for seeds: put landscape pictures (unsplash)
 

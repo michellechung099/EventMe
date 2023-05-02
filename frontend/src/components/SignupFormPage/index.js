@@ -45,10 +45,10 @@ function SignupFormPage() {
 
   const handleDemoSignup = () => {
     const demoUser = {
-      email: "demo3@user.io",
-      firstName: "Demo",
-      lastName: "User",
-      password: "demopassword",
+      email: "demo@user.io",
+      firstName: "demo",
+      lastName: "user",
+      password: "password",
     };
     // Dispatch the login action with the demo user credentials
     return dispatch(sessionActions.login(demoUser));

@@ -18,55 +18,39 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <NavLink className="nav-link" to="/login">Log In</NavLink>
-        <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
+        <li><NavLink className="login-link" to="/login">Log In</NavLink></li>
+        <li><NavLink className="signup-link" to="/signup">Sign Up</NavLink></li>
       </>
     );
   }
 
   return (
       <>
-      <ul className="nav-container">
-        <li>
+      <nav className="nav-header">
+        <div className="left">
           <NavLink exact to="/">
-            <img src={eventbriteLogo} alt="logo" className="logo"/>
+            <img src={eventbriteLogo} alt="logo" className="logo" />
           </NavLink>
-        </li>
-        <li className="search-bar">
-          <AiOutlineSearch className="search-icon"/>
-          <input type="text" placeholder="search events" className="search-input" />
-        </li>
-        <li className="session-links">{sessionLinks}</li>
-      </ul>
+        </div>
+
+        <div className="search-bar">
+          <div className="icon">
+            <AiOutlineSearch className="search-icon"/>
+          </div>
+          <div className="search">
+            <input type="text" placeholder="Search events" className="search-input" />
+          </div>
+        </div>
+
+        <ul className="nav-links">
+          <li className="create-an-event">
+            <NavLink exact to="/events/new">Create an event</NavLink>
+          </li>
+          <li className="session-links">{sessionLinks}</li>
+        </ul>
+      </nav>
     </>
   );
 }
 
 export default Navigation;
-
-{/* <header className="header">
-        <nav className="header-nav">
-          <ul className="nav-list">
-            <li className="logo-search">
-              <div className="header-logo">
-                <NavLink exact to="/">
-                  <img src={eventbriteLogo} alt="logo" className="logo"/>
-                </NavLink>
-              </div>
-              <div className="search-bar">
-                <AiOutlineSearch className="search-icon"/>
-                <input type="text" placeholder="search events" className="search-input" />
-              </div>
-            </li>
-
-            <li className="session-links">
-              <div className="login-wrapper">
-                <NavLink className="nav-link" to="/login">Log In</NavLink>
-              </div>
-              <div className="signup-wrapper">
-                <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </header> */}

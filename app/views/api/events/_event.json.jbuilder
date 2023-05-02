@@ -8,7 +8,8 @@ json.extract! event,
   :start_time,
   :end_time,
   :summary,
-  :ticket_quantity
+  :ticket_quantity,
+  :description
 
 if event.photo.attached?
   json.photo_url url_for(event.photo)
