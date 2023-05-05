@@ -138,3 +138,12 @@ ul {
 .right-side:hover .dropdown-content {
   display: block;
 }
+
+.profile-dropdown {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-dropdown li {
+  
+}

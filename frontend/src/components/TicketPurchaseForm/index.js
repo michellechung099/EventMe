@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './TicketPurchaseForm.css'
 import { useInput } from '../../hooks';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect } from 'react';
 import { fetchEvent } from '../../store/events';
 import { updateTicket } from '../../store/tickets';
 
 function TicketPurchaseForm() {
+  const sessionUser = useSelector(state => state.session.user)
   const { eventId, ticketId } = useParams();
   const event = useSelector(state => state.events[eventId])
   const ticket = useSelector(state => state.tickets[ticketId])
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [quantity, onQuantityChange] = useInput(0);
 
@@ -21,6 +23,7 @@ function TicketPurchaseForm() {
   const handlePurchaseSubmit = (e) => {
     e.preventDefault();
     dispatch(updateTicket(eventId, null, quantity))
+    history.push(`/users/${sessionUser.id}`);
   }
 
   return (
