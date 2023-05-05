@@ -168,6 +168,15 @@ event8 = Event.create!({
 photo8 = URI.open('https://eventme-seeds.s3.us-west-1.amazonaws.com/frank-rolando-romero-ZHoOhrH-yVs-unsplash.jpg')
 event8.photo.attach(io: photo8, filename:'frank-rolando-romero-ZHoOhrH-yVs-unsplash.jpg')
 
+ticket1 = Ticket.create!({
+  event_id: 15,
+  name: "general admission",
+  price: 0.00,
+  quantity: 15,
+  sales_start_time: '2023-05-15T15:00:00',
+  sales_end_time: '2023-05-20T14:00:00'
+})
+
 # Event.each_with_index do |event, index|
 #   event.photo.attach(
 #     io: URI.open()

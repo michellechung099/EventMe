@@ -35,6 +35,8 @@ module Eventbrite
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.railties_order = [:all, :main_app]
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
       key: '_event_me_session',
@@ -43,5 +45,6 @@ module Eventbrite
       # specifies restrictions on sending the cookie along with requests from third-party sites (behavior that could expose app to certain CSRF attacks) -> cookie's level of cross-site access (:lax -> cookie will be sent with cross-site requests only if the request is initiated by the same-site)
       secure: Rails.env.production?
       # specifies whether or not the cookie requires a secure context (https)
-  end
+
+    end
 end

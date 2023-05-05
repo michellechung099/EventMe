@@ -3,21 +3,24 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchEvents } from "../../store/events";
 import EventList from "./EventList";
 import './EventIndex.css'
-import HomeImage from "../../assets/home.png"
+import HomeImage from "../../assets/eventbrite_home.jpg"
 
 function EventIndexPage() {
   const dispatch = useDispatch();
   const events = useSelector(state => state.events ? Object.values(state.events) : []);
+  // const deleted = useSelector(state => state.events.deleted);
+
 
   useEffect(()=>{
     dispatch(fetchEvents());
-  }, [dispatch])
+  }, [dispatch, events]);
 
   return (
+    <>
     <div className="event-index-page">
-      {/* <div className="header-image">
+      <div className="header-image">
         <img src={HomeImage} alt="home" />
-      </div> */}
+      </div>
 
       <div className="event-list-container">
         <div className="bucket-content">
@@ -32,6 +35,7 @@ function EventIndexPage() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

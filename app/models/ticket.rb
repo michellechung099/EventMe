@@ -13,7 +13,10 @@
 #  updated_at       :datetime         not null
 #
 class Ticket < ApplicationRecord
+  validates :event_id, :name, :price, :quantity, :sales_start_time, :sales_end_time, presence: true
+  validates :name, length: { maximum: 50 }
+
   belongs_to :event
 
-  validates
+  belongs_to :user
 end

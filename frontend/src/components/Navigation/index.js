@@ -5,7 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import eventbriteLogo from '../../assets/eventbriteLogo.png';
 import { AiOutlineSearch } from 'react-icons/ai'
-import backgroundImage from "../../assets/home.png"
+// import backgroundImage from "../../assets/home.png"
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -13,7 +13,7 @@ function Navigation() {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <ProfileButton user={sessionUser} className="profile-dropdown" />
     );
   } else {
     sessionLinks = (
@@ -42,12 +42,12 @@ function Navigation() {
           </div>
         </div>
 
-        <ul className="nav-links">
-          <li className="create-an-event">
+        <div className="right-side-nav">
+          <div className="create-an-event">
             <NavLink exact to="/events/new">Create an event</NavLink>
-          </li>
-          <li className="session-links">{sessionLinks}</li>
-        </ul>
+          </div>
+          <div className="session-links">{sessionLinks}</div>
+        </div>
       </nav>
     </>
   );

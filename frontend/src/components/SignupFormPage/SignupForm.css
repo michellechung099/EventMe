@@ -1,18 +1,20 @@
-/* .split-screen {
+.split-screen {
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
 .left-side,
-.right-side {
-  flex: 1;
+.right-side-signup {
+  flex-basis: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-.right-side {
+.right-side-signup {
+  flex-basis: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -95,4 +97,4 @@ button:hover {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-} */
+}

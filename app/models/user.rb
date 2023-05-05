@@ -27,6 +27,9 @@ class User < ApplicationRecord
   has_many :events,
     dependent: :destroy
 
+  has_many :tickets,
+    dependent: :destroy 
+
   def self.find_by_credentials(email, password)
     # `email` if `credential` matches `URI::MailTo::EMAIL_REGEXP`
     # find the user whose email/username is equal to `credential`

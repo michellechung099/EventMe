@@ -116,7 +116,7 @@ function SignupFormPage() {
           </div>
         </div>
 
-        <div className="right-side">
+        <div className="right-side-signup">
           <img className="signup-image" src={signUp} alt="signup" />
         </div>
       </div>

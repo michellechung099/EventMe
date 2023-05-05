@@ -4,10 +4,17 @@ async function csrfFetch(url, options = {}) {
   // set options.headers to an empty object if there is no headers
   options.headers = options.headers || {};
 
+  // if (options.method.toUpperCase() !== "GET") {
+  //   options.headers["Content-Type"] =
+  //     options.headers["Content-Type"] || "application/json";
+  //   // assume token has been stored in sessionStorage
+  //   options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
+  // }
+
   if (options.method.toUpperCase() !== "GET") {
-    options.headers["Content-Type"] =
-      options.headers["Content-Type"] || "application/json";
-    // assume token has been stored in sessionStorage
+    if (!options.headers["Content-Type"] && !(options.body instanceof FormData)) {
+      options.headers["Content-Type"] = "application/json";
+    }
     options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
   }
 
