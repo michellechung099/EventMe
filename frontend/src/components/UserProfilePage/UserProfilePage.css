@@ -89,7 +89,7 @@
   width: 100%;
   max-width: 100px;
   object-fit: cover;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .event-right {
@@ -116,4 +116,19 @@
 
 .user-event-title {
   width: 70%;
+}
+
+.ticket-index {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tickets {
+  flex-direction: column;
+}
+
+.ticket-event-name {
+  font-size: 24px;
+  margin-bottom: 0; 
 }

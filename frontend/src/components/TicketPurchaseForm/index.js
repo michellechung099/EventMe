@@ -20,7 +20,7 @@ function TicketPurchaseForm() {
 
   const handlePurchaseSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateTicket(eventId, null, -quantity))
+    dispatch(updateTicket(eventId, null, quantity))
   }
 
   return (

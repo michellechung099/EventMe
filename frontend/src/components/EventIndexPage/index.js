@@ -13,7 +13,7 @@ function EventIndexPage() {
 
   useEffect(()=>{
     dispatch(fetchEvents());
-  }, [dispatch, events]);
+  }, [dispatch]);
 
   return (
     <>

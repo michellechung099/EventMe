@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :tickets, only: [:index, :show, :create, :update, :destroy]
     end
     get 'user/events/user_events', to: 'events#user_events'
-    get '/api/tickets', to: 'tickets#index'
+    get '/tickets', to: 'tickets#index'
     delete '/events/:id', to: 'events#destroy'
   end
 

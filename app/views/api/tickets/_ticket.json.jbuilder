@@ -5,5 +5,5 @@ json.extract! ticket,
   :price,
   :quantity,
   :sales_start_time,
-  :sales_end_time
-
+  :sales_end_time,
+  :user_id

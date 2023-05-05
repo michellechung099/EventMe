@@ -80,6 +80,18 @@ function UserProfilePage () {
         </div>
         <div className="tickets">
           <h3 className="ticket-orders">Orders</h3>
+          {
+            tickets.map(ticket => {
+              return (
+                <div className="ticket-index">
+
+                        <h1 className="ticket-event-name">{ticket.eventName}</h1>
+                        <p className="ticket-name">{ticket.name}</p>
+
+                </div>
+              )
+            })
+          }
         </div>
       </div>
     </>

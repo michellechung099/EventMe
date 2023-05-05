@@ -84,7 +84,14 @@ export const updateTicket = (eventId, ticketId, quantity) => async(dispatch) => 
 }
 
 // export const deleteTicket = ticketId => async (dispatch) => {
-//   const response = await csrfFetch(`api/`)
+//   const response = await csrfFetch(`api/events/${eventId}/tickets/${ticketId}`, {
+//     method: 'DELETE'
+//   })
+
+//   if (response.ok) {
+//     dispatch()
+//   }
+
 // }
 
 function ticketReducer(state={}, action) {
