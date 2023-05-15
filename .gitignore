@@ -41,3 +41,5 @@ bundle install
 rails db:migrate db:seed
 
 /config/credentials/production.key
+
+/public 

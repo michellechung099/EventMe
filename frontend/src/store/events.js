@@ -68,7 +68,6 @@ export const fetchEvent = eventId => async(dispatch) => {
 }
 
 export const createEvent = event => async(dispatch) => {
-  // console.log(eventFormData);
   const response = await csrfFetch(`/api/events`, {
     method: 'POST',
     headers: {
