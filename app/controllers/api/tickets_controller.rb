@@ -5,7 +5,6 @@ class Api::TicketsController < ApplicationController
   def index
     # User.find(params[:user_id])
     @tickets = current_user.tickets
-    # debugger
     render 'api/tickets/index'
   end
 
@@ -39,7 +38,6 @@ class Api::TicketsController < ApplicationController
     @ticket = Ticket.find_by(event_id: params[:event_id])
     @ticket.user_id = current_user.id
     @ticket.event_id = params[:event_id]
-    # debugger
 
     if @ticket.save!
       @event.ticket_quantity -= params[:ticket][:quantity].to_i
