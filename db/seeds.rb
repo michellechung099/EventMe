@@ -17,6 +17,7 @@ ApplicationRecord.transaction do
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
+  ApplicationRecord.connection.reset_pk_sequence!('events')
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
@@ -169,7 +170,7 @@ photo8 = URI.open('https://eventme-seeds.s3.us-west-1.amazonaws.com/frank-roland
 event8.photo.attach(io: photo8, filename:'frank-rolando-romero-ZHoOhrH-yVs-unsplash.jpg')
 
 ticket1 = Ticket.create!({
-  event_id: 15,
+  event_id: 1,
   name: "general admission",
   price: 0.00,
   quantity: 15,
