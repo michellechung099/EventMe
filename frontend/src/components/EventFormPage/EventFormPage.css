@@ -21,8 +21,14 @@
 }
 
 .event-create-form {
-  margin-left: 250px;
+  /* margin-left: 250px; */
   padding: 0px 10px;
+}
+
+.event-form-container .event-create-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .event-create-form {
@@ -41,17 +47,31 @@
   margin-right: -0.75px;
 }
 
-.directions {
+.basic-info-directions .directions {
   color: #39364f;
+  font-size: 14px;
 }
 
-.event-create-form input,
 .event-create-form select,
 .event-create-form textarea {
   width: 100%;
   margin-bottom: 1rem;
   box-sizing: border-box;
   padding: 12px 12px 16px;
+  color: #39364f;
+}
+
+.event-create-form input {
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  padding: 20px 12px 9px;
+  color: #39364f;
+}
+
+.event-create-form input:hover {
+  border: 1px solid #6f7287;
+  border-radius: 4px;
 }
 
 .basic-info-directions {
@@ -81,3 +101,83 @@
   width: 50%;
 }
 
+.date-and-time-header .event-button .single-event-button {
+  border: 1px solid #3659e3;
+  color: #3659e3;
+  text-align: center;
+  background-color: rgba(54,89,227,.1);
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.basic-info-header .event-form-title {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: none;
+  text-align: start;
+  cursor: text;
+}
+
+.event-form-container input:focus, select:focus, textarea:focus {
+  outline-color: #3d64ff;
+}
+
+.event-form-title {
+  position: relative;
+}
+
+.event-form-title .event-form-title-input-label {
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  font-size: 12px;
+  color: #6f7287;
+}
+
+.event-start-date {
+  position: relative;
+}
+
+.event-start-date .event-form-event-starts-input-label {
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  font-size: 12px;
+  color: #6f7287;
+}
+
+.event-end-date {
+  position: relative;
+}
+
+.event-end-date .event-form-event-ends-input-label {
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  font-size: 12px;
+  color: #6f7287;
+}
+
+.event-form-venue-location {
+  position: relative;
+}
+
+.event-form-venue-location .venue-location-input-label {
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  font-size: 12px;
+  color: #6f7287;
+}
+
+.rdrDateDisplayItem {
+  display: none;
+}
+
+.rdrDateDisplayWrapper {
+  display: none;
+}

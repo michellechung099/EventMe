@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 export function useInput(initialValue) {
+  console.log(`initialValue: ${initialValue}`)
   const [value, setValue] = useState(initialValue);
   const onChange = (e) => setValue(e.target.value);
   return [value, onChange];

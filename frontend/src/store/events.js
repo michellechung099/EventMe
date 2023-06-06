@@ -86,8 +86,16 @@ export const createEvent = event => async(dispatch) => {
   }
 };
 
-export const updateEvent = event => async (dispatch) => {
-  const response = await csrfFetch(`api/events/${event.id}`, {
+export const updateEvent = (event, eventId) => async (dispatch) => {
+  const formData = new FormData();
+
+  console.log(`inside updateEvent: ${event}`)
+
+  // Object.keys(event).forEach((key) => {
+  //   formData.append(key, event[key]);
+  // });
+
+  const response = await csrfFetch(`/api/events/${eventId}`, {
     method: 'PATCH',
     headers: {
       "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")

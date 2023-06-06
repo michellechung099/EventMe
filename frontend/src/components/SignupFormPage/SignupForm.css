@@ -1,11 +1,11 @@
-.split-screen {
+.sign-up-form-split-screen {
   display: flex;
   width: 100%;
   height: 100vh;
 }
 
-.left-side,
-.right-side-signup {
+.sign-up-left-side,
+.sign-up-right-side {
   flex-basis: 50%;
   display: flex;
   justify-content: center;
@@ -13,24 +13,20 @@
   height: 100vh;
 }
 
-.right-side-signup {
+.sign-up-right-side {
   flex-basis: 50%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-body {
-  font-weight: 400;
-}
-
-.SignupForm {
+.sign-up-form-container {
   margin-top: 0;
   max-width: 400px;
   margin: 0 auto;
 }
 
-.signup-text {
+.sign-up-form-container .signup-text {
   font-size: 3.25rem;
   line-height: 4rem;
   font-weight: 800;
@@ -39,7 +35,7 @@ body {
   font-family: "Neue Plak";
 }
 
-form {
+.sign-up-form-container .sign-up-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,22 +49,22 @@ form {
   border-radius: 4px;
 }
 
-ul {
+.sign-up-form ul {
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
 }
 
-li {
+.sign-up-form li {
   color: #d9534f;
   margin-bottom: 5px;
 }
 
-input::placeholder {
+.sign-up-form input::placeholder {
   color: #999;
 }
 
-input {
+.sign-up-form input {
   padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -78,7 +74,7 @@ input {
   color: #333;
 }
 
-button {
+.sign-up-form button {
   font-size: 16px;
   font-weight: bold;
   color: #fff;
@@ -90,11 +86,16 @@ button {
   width: 100%;
 }
 
-button:hover {
+.sign-up-form button:hover {
   background-color: #D1410C;
 }
 
-button:disabled {
+.sign-up-form button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+.signup-image {
+  width: 100%;
+  height: 100vh;
 }

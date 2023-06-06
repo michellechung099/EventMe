@@ -5,7 +5,6 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import eventbriteLogo from '../../assets/eventbriteLogo.png';
 import { AiOutlineSearch } from 'react-icons/ai'
-// import backgroundImage from "../../assets/home.png"
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -17,19 +16,24 @@ function Navigation() {
     );
   } else {
     sessionLinks = (
-      <>
-        <li><NavLink className="login-link" to="/login">Log In</NavLink></li>
-        <li><NavLink className="signup-link" to="/signup">Sign Up</NavLink></li>
-      </>
+      <div className='loginlink-container'>
+        <NavLink className="login-link" to="/login">Log In</NavLink>
+        <NavLink className="signup-link" to="/signup">Sign Up</NavLink>
+      </div>
     );
   }
 
   return (
       <>
       <nav className="nav-header">
-        <div className="left">
+        {/* <div className="left">
           <NavLink exact to="/">
             <img src={eventbriteLogo} alt="logo" className="logo" />
+          </NavLink>
+        </div> */}
+        <div className="nav-left">
+          <NavLink exact to="/">
+            <h1 className="logo">eventme</h1>
           </NavLink>
         </div>
 

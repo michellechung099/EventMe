@@ -9,6 +9,7 @@ import EventFormPage from "./components/EventFormPage";
 import TicketFormPage from "./components/TicketFormPage";
 import UserProfilePage from "./components/UserProfilePage";
 import TicketPurchaseForm from "./components/TicketPurchaseForm";
+import ManageMyEvents from "./components/ManageMyEvents";
 
 function App() {
   const location = useLocation();
@@ -18,30 +19,16 @@ function App() {
     <>
       {showNavigation && <Navigation />}
       <Switch>
-        <Route path="/login">
-          <LoginFormPage />
-        </Route>
-        <Route path="/signup">
-          <SignupFormPage />
-        </Route>
-        <Route exact path="/users/:userId">
-          <UserProfilePage />
-        </Route>
-        <Route exact path="/">
-          <EventIndexPage />
-        </Route>
-        <Route exact path="/events/new">
-          <EventFormPage />
-        </Route>
-        <Route exact path="/tickets/:eventId/new">
-          <TicketFormPage />
-        </Route>
-        <Route exact path="/tickets/:eventId/update">
-          <TicketPurchaseForm />
-        </Route>
-        <Route exact path="/events/:eventId">
-          <EventShowPage />
-        </Route>
+        <Route path="/login" component={LoginFormPage}/>
+        <Route path="/signup" component={SignupFormPage} />
+        <Route exact path="/users/:userId" component={UserProfilePage} />
+        <Route exact path="/users/:userId/events" component={ManageMyEvents} />
+        <Route exact path="/" component={EventIndexPage} />
+        <Route exact path="/events/new" component={EventFormPage} />
+        <Route exact path="/events/:eventId/update" component={EventFormPage} />
+        <Route exact path="/tickets/:eventId/new" component={TicketFormPage} />
+        <Route exact path="/tickets/:eventId/update" component={TicketPurchaseForm} />
+        <Route exact path="/events/:eventId" component={EventShowPage} />
       </Switch>
     </>
   );

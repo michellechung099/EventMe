@@ -56,12 +56,12 @@ function SignupFormPage() {
 
   return (
     <>
-      <div className="split-screen">
-        <div className="left-side">
-          <div className="SignupForm">
+      <div className="sign-up-form-split-screen">
+        <div className="sign-up-left-side">
+          <div className="sign-up-form-container">
             <h1 className="signup-text">Create an account</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="sign-up-form" onSubmit={handleSubmit}>
               <ul>
                 {errors.map((error) => <li key={error}>{error}</li>)}
               </ul>
@@ -111,12 +111,11 @@ function SignupFormPage() {
                 />
               </label>
               <button type="submit">Create account</button>
-              <button type="button" onClick={handleDemoSignup}>Sign up as demo user</button>
             </form>
           </div>
         </div>
 
-        <div className="right-side-signup">
+        <div className="sign-up-right-side">
           <img className="signup-image" src={signUp} alt="signup" />
         </div>
       </div>

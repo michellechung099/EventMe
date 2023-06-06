@@ -13,15 +13,14 @@ Rails.application.routes.draw do
 
     resource :session, only: [:show, :create, :destroy]
     resources :events, only: [:create, :update, :destroy, :index, :show] do
-      resources :tickets, only: [:index, :show, :create, :update, :destroy]
+      resources :tickets, only: [:index, :purchased_tickets, :show, :create, :update, :destroy]
+      resources :event_tickets, only: %i[create]
     end
     get 'user/events/user_events', to: 'events#user_events'
     get '/tickets', to: 'tickets#index'
+    get '/tickets/purchased_tickets', to: 'tickets#purchased_tickets'
     delete '/events/:id', to: 'events#destroy'
   end
 
   get '*path', to: "static_pages#frontend_index", constraints: -> (req) {!req.xhr? && req.format.html?}
-  # get '*path', to: "static_pages#frontend_index", constraints: ->(req) {
-  #   req.path.exclude? 'rails/active_storage'
-  # }
 end

@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min
 import { useEffect } from 'react';
 import { fetchEvent } from '../../store/events';
 import { updateTicket } from '../../store/tickets';
+import { createTicket } from '../../store/tickets';
 
 function TicketPurchaseForm() {
   const sessionUser = useSelector(state => state.session.user)
@@ -16,13 +17,16 @@ function TicketPurchaseForm() {
 
   const [quantity, onQuantityChange] = useInput(0);
 
+  console.log(`ticketId: ${ticketId} | eventId: ${eventId}`);
+
   useEffect(()=> {
     dispatch(fetchEvent(eventId));
   }, [dispatch])
 
   const handlePurchaseSubmit = (e) => {
+    const ticketParams = { quantity: quantity };
     e.preventDefault();
-    dispatch(updateTicket(eventId, null, quantity))
+    dispatch(createTicket(eventId, ticketParams));
     history.push(`/users/${sessionUser.id}`);
   }
 

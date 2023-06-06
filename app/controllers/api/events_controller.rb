@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
   before_action :require_logged_in, only: [:create, :update, :destroy, :user_events]
-  wrap_parameters include: Event.attribute_names + [:photo, :userId,:startTime, :endTime, :ticketQuantity], format: [:json, :multipart_form]
+  wrap_parameters include: Event.attribute_names + [:photo, :userId,:startTime, :endTime, :ticketQuantity, :eventType], format: [:json, :multipart_form]
 
   def index
     # render all events under a key of events
@@ -23,16 +23,17 @@ class Api::EventsController < ApplicationController
 
   def update
     # only allow event update for current user
-    if (@event.user_id == current_user.id) && @event.update(event_params)
+    @event = Event.find(params[:id])
+    if (@event.user_id == current_user.id) && @event.update!(event_params)
       render 'api/events/show'
     else
-      render json: @event.errors.full_messages, status: 422
+      render json: { errors: @event.errors.full_messages }, status: 422
     end
   end
 
   def destroy
     @event = Event.find(params[:id])
-    if @event
+    if (@event.user_id == current_user.id) && @event
       @event.destroy
       render json: { message: 'Event deleted successfully' }, status: 200
     else
@@ -56,7 +57,7 @@ class Api::EventsController < ApplicationController
     params.require(:event).permit(
       :title,
       :user_id,
-      :type,
+      :event_type,
       :category,
       :location,
       :start_time,

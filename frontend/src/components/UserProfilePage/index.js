@@ -24,6 +24,10 @@ function UserProfilePage () {
   //   dispatch(updateTicket(eventId, ticketId, quantity))
   // }, [dispatch])
 
+  useEffect(() => {
+
+  })
+
   function formatDate(dateString) {
     const date = new Date(dateString);
     const formatter = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric" });
@@ -48,50 +52,14 @@ function UserProfilePage () {
             </div>
           </div>
         </div>
-        <div className="user-events">
-          <h3 className="title">Events</h3>
-          <ul className="list">
-            {userEvents.map((event) => (
-              <li key={event.id} className="event-container">
-                <div className="event-left">
-                  <div className="user-event-date">
-                    {formatDate(event.startTime)}
-                  </div>
-                  <div className="user-event-info">
-                    <div className="user-event-image">
-                      <img src={event.photoUrl ? event.photoUrl : stockPhoto} />
-                    </div>
-                    <div className="user-event-title">
-                      <h1>{event.title}</h1>
-                      <p>{event.description}</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="event-right">
-                    <p>{event.ticketQuantity}</p>
-                    <NavLink to={`/tickets/${event.id}/new`}>Add Tickets</NavLink>
-                    <NavLink to={`/tickets/${event.id}/new`}>Edit Tickets
-                    </NavLink>
-                    <button onClick={(e) => handleClick(e, event.id)}>Delete Event</button>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
         <div className="tickets">
           <h3 className="ticket-orders">Orders</h3>
-          {
-            tickets.map(ticket => {
-              return (
-                <div className="ticket-index">
-
-                        <h1 className="ticket-event-name">{ticket.eventName}</h1>
-                        <p className="ticket-name">{ticket.name}</p>
-
-                </div>
-              )
-            })
-          }
+          {tickets.map((ticket) => (
+            <li className="">
+              <h1 className="ticket-event-name">{ticket.eventName}</h1>
+              <p className="ticket-name">{ticket.name}</p>
+            </li>
+          ))}
         </div>
       </div>
     </>

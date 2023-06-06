@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_05_152053) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_032050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_152053) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "event_tickets", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.string "name"
+    t.decimal "unit_price"
+    t.datetime "sales_start_time"
+    t.datetime "sales_end_time"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "quantity"
+    t.index ["event_id"], name: "index_event_tickets_on_event_id"
+    t.index ["user_id"], name: "index_event_tickets_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "title", null: false
     t.bigint "user_id", null: false
@@ -60,16 +74,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_152053) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.string "name", null: false
-    t.decimal "price", null: false
     t.integer "quantity", null: false
-    t.datetime "sales_start_time", null: false
-    t.datetime "sales_end_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
+    t.bigint "buyer_id"
+    t.bigint "event_ticket_id"
+    t.index ["buyer_id"], name: "index_tickets_on_buyer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,7 +96,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_05_152053) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "event_tickets", "events"
+  add_foreign_key "event_tickets", "users"
   add_foreign_key "events", "users"
-  add_foreign_key "tickets", "events"
-  add_foreign_key "tickets", "users"
+  add_foreign_key "tickets", "users", column: "buyer_id"
 end

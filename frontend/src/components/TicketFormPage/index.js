@@ -16,7 +16,7 @@ function TicketFormPage() {
   const history = useHistory();
 
   const [name, onNameChange] = useInput('');
-  const [price, onPriceChange] = useInput('');
+  const [unitPrice, onPriceChange] = useInput('');
   const [quantity, onQuantityChange] = useInput('');
   const [salesStartTime, onSalesStartTimeChange] = useInput('');
   const [salesEndTime, onSalesEndTimeChange] = useInput('');
@@ -29,11 +29,21 @@ function TicketFormPage() {
     }
   }, [dispatch, ticketId]);
 
+  useEffect(() => {
+    if (ticket) {
+      onNameChange(ticket.name);
+      onPriceChange(ticket.unitPrice);
+      onQuantityChange(ticket.quantity);
+      onSalesStartTimeChange(ticket.salesStartTime);
+      onSalesEndTimeChange(ticket.salesEndTime);
+    }
+  }, [ticket, onNameChange, onPriceChange, onQuantityChange, onSalesStartTimeChange, onSalesEndTimeChange])
+
   const handleTicketSubmit = (e) => {
     e.preventDefault();
     const newTicket = {
       name,
-      price,
+      unitPrice,
       quantity,
       salesStartTime,
       salesEndTime,
@@ -44,7 +54,7 @@ function TicketFormPage() {
     } else {
       dispatch(createTicket(eventId, newTicket));
     }
-    history.push(`/users/${currentUser.id}`);
+    history.push(`/users/${currentUser.id}/events`);
   };
 
   return (
@@ -78,7 +88,7 @@ function TicketFormPage() {
         <label>
           <input
             type="text"
-            value={price}
+            value={unitPrice}
             onChange={onPriceChange}
             required
             placeholder="Price"

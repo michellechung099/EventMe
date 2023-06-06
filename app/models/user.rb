@@ -28,7 +28,7 @@ class User < ApplicationRecord
     dependent: :destroy
 
   has_many :tickets,
-    dependent: :destroy 
+    dependent: :destroy
 
   def self.find_by_credentials(email, password)
     # `email` if `credential` matches `URI::MailTo::EMAIL_REGEXP`

@@ -22,8 +22,6 @@ class Event < ApplicationRecord
   validates :title, length: { maximum: 75 }
   validates :summary, length: { maximum: 140 }
   validates :ticket_quantity, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, allow_blank: true
-  # validates :event_type, allow_blank: true, if: :event_type_present?
-  # validates :category, allow_blank: true, if: :category_present?
 
   belongs_to :user,
     class_name: 'User',
@@ -32,14 +30,8 @@ class Event < ApplicationRecord
 
   has_one_attached :photo
 
-  has_many :tickets,
-    dependent: :destroy
+  # has_many :tickets,
+  #   dependent: :destroy
 
-  # def event_type_present?
-  #   event_type.present?
-  # end
-
-  # def category_present?
-  #   category.present?
-  # end
+  has_many :event_tickets
 end

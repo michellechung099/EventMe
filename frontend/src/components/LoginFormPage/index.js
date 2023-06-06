@@ -33,14 +33,25 @@ function LoginFormPage() {
       });
   };
 
+  const handleDemoLogIn = () => {
+    const demoUser = {
+      email: "demo@user.io",
+      firstName: "demo",
+      lastName: "user",
+      password: "password",
+    };
+    // Dispatch the login action with the demo user credentials
+    return dispatch(sessionActions.login(demoUser));
+  };
+
   return (
     <>
-      <div className="split-screen">
-        <div className="left-side">
-          <div className="login-form">
+      <div className="login-form-split-screen">
+        <div className="login-form-left-side">
+          <div className="login-form-container">
             <h1 className="login-text">Log In</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="login-form" onSubmit={handleSubmit}>
               <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
               </ul>
@@ -63,12 +74,13 @@ function LoginFormPage() {
                 />
               </label>
               <button type="submit">Log In</button>
+              <button type="button" onClick={handleDemoLogIn}>Log In as demo user</button>
             </form>
           </div>
         </div>
 
-        <div className="right-side">
-          <img className="background-image" src={logIn} alt="background" />
+        <div className="login-form-right-side">
+          <img className="login-background-image" src={logIn} alt="background" />
         </div>
       </div>
     </>
