@@ -73,7 +73,7 @@
 }
 
 .profile-right-side a {
-  font-size: 12px;
+  font-size: 13px;
   color: #6f7287;
   text-align: center;
   /* padding: 14px 16px; */
@@ -180,7 +180,7 @@
 
 .dropdown-profile-icon {
   margin-left: 0.6vw;
-  margin-right: 0.5vw;
+  margin-right: 3px;
   margin-top: 0.6vh;
   font-size: 1.6vw;
   color: #4b4d63;
@@ -188,10 +188,12 @@
 
 .dropdown-email {
   color: #4b4d63;
+  font-size: 15px;
 }
 
 .dropdown-caret-icon {
   margin-top: 0.8vh;
+  margin-left: 2px;
   color: #4b4d63;
 }
 
@@ -208,8 +210,8 @@
 
 
   .dropdown-profile-icon {
-   font-size: 30px;
-  color: #4b4d63;
+   font-size: 25px;
+   color: #6f7287;
   }
 }
 
@@ -227,6 +229,18 @@
   }
   .search{
     display: none;
+  }
+
+  .search-icon {
+    color: #6f7287;
+    width: 24px;
+    height: 24px;
+  }
+
+  #user-icon {
+    width: 24px;
+    height: 24px;
+    color: #6f7287;
   }
 
   .header-image img{

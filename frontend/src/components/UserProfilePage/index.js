@@ -69,6 +69,7 @@ function UserProfilePage () {
                     </div>
                     <div className="user-ticket-event-title">
                       <h1>{ticket.event.title}</h1>
+                      <p className="user-ticket-mobile-event-date">{formatDate(ticket.event.startTime)}</p>
                       <p className="user-ticket-event-description">{ticket.event.description}</p>
                       <p className="user-ticket-quantity">ticket quantity: {ticket.quantity}</p>
                     </div>

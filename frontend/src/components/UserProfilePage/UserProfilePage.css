@@ -127,6 +127,10 @@
   margin-bottom: 0;
 }
 
+.user-ticket-mobile-event-date {
+  display: none;
+}
+
 @media screen and (max-width: 800px) {
   .tickets {
     margin-top: -7px;
@@ -136,7 +140,7 @@
     width: 100%;
   }
 
-  .user-ticket-event-description, .user-ticket-quantity {
+  .user-ticket-event-description {
     display: none;
   }
 
@@ -149,8 +153,15 @@
   }
 
   .user-ticket-event-date {
-    width: auto;
-    margin-right: 5px;
-    margin-left: 0;
+    display: none;
+  }
+
+  .user-ticket-mobile-event-date {
+    display: block;
+    margin: 0;
+  }
+
+  .user-ticket-quantity {
+    margin: 0;
   }
 }

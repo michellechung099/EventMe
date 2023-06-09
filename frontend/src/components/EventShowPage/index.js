@@ -78,7 +78,7 @@ function EventShowPage() {
              </div>
              <div className="event-details-refund">
                <h2>Refund Policy</h2>
-               <div>
+               <div className="refund-details">
                  Refunds up to <b>7 days</b> before event
                </div>
              </div>
