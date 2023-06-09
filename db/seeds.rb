@@ -193,6 +193,66 @@ event_ticket2 = EventTicket.create!({
   user_id: 2
 })
 
+event_ticket3 = EventTicket.create!({
+  event_id: 3,
+  name: "general admission",
+  unit_price: 10.00,
+  quantity: 15,
+  sales_start_time: '2023-05-01T15:00:00',
+  sales_end_time: '2023-05-20T15:00:00',
+  user_id: 3
+})
+
+event_ticket4 = EventTicket.create!({
+  event_id: 4,
+  name: "general admission",
+  unit_price: 10.00,
+  quantity: 15,
+  sales_start_time: '2023-06-01T16:00:00',
+  sales_end_time: '2023-06-20T16:00:00',
+  user_id: 3
+})
+
+event_ticket5 = EventTicket.create!({
+  event_id: 5,
+  name: "general admission",
+  unit_price: 10.00,
+  quantity: 20,
+  sales_start_time: '2023-04-01T13:30:00',
+  sales_end_time: '2023-04-28T13:30:00',
+  user_id: 5
+})
+
+event_ticket6 = EventTicket.create!({
+  event_id: 6,
+  name: "general admission",
+  unit_price: 10.00,
+  quantity: 10,
+  sales_start_time: '2023-05-01T12:00:00',
+  sales_end_time: '2023-05-28T12:00:00',
+  user_id: 5
+})
+
+event_ticket7 = EventTicket.create!({
+  event_id: 7,
+  name: "general admission",
+  unit_price: 10.00,
+  quantity: 8,
+  sales_start_time: '2023-06-01T17:00:00',
+  sales_end_time: '2023-06-28T17:00:00',
+  user_id: 7
+})
+
+event_ticket8 = EventTicket.create!({
+  event_id: 8,
+  name: "general admission",
+  unit_price: 10.00,
+  quantity: 10,
+  sales_start_time: '2023-04-15T14:00:00',
+  sales_end_time: '2023-05-03T14:00:00',
+  user_id: 5
+})
+
 ticket1 = Ticket.create!({
   quantity: 1,
   buyer_id: 1,

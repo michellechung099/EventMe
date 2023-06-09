@@ -89,8 +89,6 @@ export const createEvent = event => async(dispatch) => {
 export const updateEvent = (event, eventId) => async (dispatch) => {
   const formData = new FormData();
 
-  console.log(`inside updateEvent: ${event}`)
-
   // Object.keys(event).forEach((key) => {
   //   formData.append(key, event[key]);
   // });

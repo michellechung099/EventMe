@@ -60,7 +60,6 @@ export const createTicket = (eventId, ticket) => async(dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log(`data: ${data}`);
     dispatch(addTicket(data.ticket));
 
     return response;
@@ -79,7 +78,6 @@ export const createEventTicket = (eventId, eventTicket) => async(dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    console.log(`data: ${data}`);
     dispatch(addTicket(data.ticket));
 
     return response;

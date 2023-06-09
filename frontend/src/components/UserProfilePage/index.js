@@ -7,13 +7,15 @@ import stockPhoto from '../../assets/imagePlaceholder.png'
 import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { updateTicket, fetchTickets } from "../../store/tickets";
 import { useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function UserProfilePage () {
+  const { eventId } = useParams();
   const currentUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const userEvents = useSelector(state => state.events ? Object.values(state.events) : []);
-  const { eventId } = useParams();
   const tickets = useSelector(state => state.tickets ? Object.values(state.tickets) : []);
+  const history = useHistory();
 
   useEffect(()=> {
     dispatch(fetchUserEvents())
@@ -25,8 +27,10 @@ function UserProfilePage () {
   // }, [dispatch])
 
   useEffect(() => {
-
-  })
+    if (!currentUser) {
+      history.push("/");
+    }
+  }, [currentUser, history]);
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -39,8 +43,6 @@ function UserProfilePage () {
     dispatch(deleteEvent(eventId));
   }
 
-  console.log(`tickets: ${JSON.stringify(tickets)}`);
-
   return (
     <>
       <div className="user-profile">
@@ -50,7 +52,7 @@ function UserProfilePage () {
               <HiOutlineUser className="user-icon" />
             </div>
             <div className="username">
-              {currentUser.firstName} {currentUser.lastName}
+              {currentUser?.firstName} {currentUser?.lastName}
             </div>
           </div>
         </div>

@@ -235,3 +235,10 @@
   font-size: 2vh;
   font-weight: 600;
 }
+
+@media screen and (max-width: 800px) {
+  .photo-preview img {
+    max-width: 200px;
+    object-fit: cover;
+  }
+}

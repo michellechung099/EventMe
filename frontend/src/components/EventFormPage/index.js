@@ -91,8 +91,6 @@ function EventFormPage() {
     }
   }, [event]);
 
-  console.log(`title: ${title}`);
-
   const handleFileChange = e => {
     const file = e.target.files[0];
 
@@ -141,8 +139,6 @@ function EventFormPage() {
 
   const timeOptions = getTimeOptions();
 
-  console.log(`event!!!: ${JSON.stringify(event)}`);
-
   const [errors, onSubmit] = useSubmit({
     createAction: () => {
       const formData = new FormData();
@@ -164,8 +160,6 @@ function EventFormPage() {
         formData.append('photo', photoFile);
       }
 
-      console.log(`formData inside EventFormPage: ${formData}`)
-
       if (eventId) {
         formData.append('id', eventId);
         return updateEvent(formData, eventId);
@@ -181,12 +175,6 @@ function EventFormPage() {
   if (!sessionUser) {
     return <Redirect to='/login' />;
   }
-
-
-  if (event?.startTime) {
-    console.log(`new Date(event.startTime): ${new Date(event.startTime)}`);
-  }
-
 
   return (
     <>

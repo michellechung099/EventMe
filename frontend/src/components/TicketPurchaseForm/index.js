@@ -17,7 +17,6 @@ function TicketPurchaseForm({eventTicketId, totalQuantity}) {
   const history = useHistory();
   const [quantity, onQuantityChange] = useInput(0);
   const [errorMessage, setErrorMessage] = useState('');
-  // console.log(`ticketId: ${ticketId} | eventId: ${eventId}`);
 
   useEffect(()=> {
     dispatch(fetchEvent(eventId));
