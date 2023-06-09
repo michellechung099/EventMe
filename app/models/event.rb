@@ -33,5 +33,6 @@ class Event < ApplicationRecord
   # has_many :tickets,
   #   dependent: :destroy
 
-  has_many :event_tickets
+  has_many :event_tickets,
+    dependent: :destroy
 end

@@ -5,7 +5,7 @@ class Api::EventTicketsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @ticket = EventTicket.new(event_ticket_params)
-    @ticket.user_id = current_user.id
+    @ticket.buyer_id = current_user.id
     @ticket.event_id = params[:event_id]
     @event.ticket_quantity += params[:event_ticket][:quantity].to_i
     @event.save!
@@ -27,10 +27,6 @@ class Api::EventTicketsController < ApplicationController
       :quantity,
       :sales_start_time,
       :sales_end_time
-      # might want to get rid of name for now
-      # later, can put name back in to allow filtering & update tickets in accordance
-      # as well as filter for purchase
-      # for now, i can also just change one event to have one ticket name
     )
   end
 end

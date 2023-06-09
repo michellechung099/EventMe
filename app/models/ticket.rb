@@ -13,10 +13,8 @@
 #  updated_at       :datetime         not null
 #
 class Ticket < ApplicationRecord
-  validates :event_id, :name, :price, :quantity, :sales_start_time, :sales_end_time, presence: true
-  validates :name, length: { maximum: 50 }, uniqueness: { scope: :event_id }
+  validates :quantity, presence: true
   validates :quantity, numericality: { greater_than: 0 }
-  belongs_to :event
 
   belongs_to :buyer,
     class_name: "User",

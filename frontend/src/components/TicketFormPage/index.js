@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { fetchTicket } from '../../store/tickets';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { createEventTicket } from '../../store/tickets';
 
 function TicketFormPage() {
   // const sessionUser = useSelector(state => state.session.user);
@@ -22,6 +23,7 @@ function TicketFormPage() {
   const [salesEndTime, onSalesEndTimeChange] = useInput('');
 
   const ticket = useSelector(state => ticketId? state.tickets[ticketId] : null);
+  // const event_ticket = useSelector(state => )
 
   useEffect(()=> {
     if (ticketId) {
@@ -37,7 +39,8 @@ function TicketFormPage() {
       onSalesStartTimeChange(ticket.salesStartTime);
       onSalesEndTimeChange(ticket.salesEndTime);
     }
-  }, [ticket, onNameChange, onPriceChange, onQuantityChange, onSalesStartTimeChange, onSalesEndTimeChange])
+  }, [ticket])
+  // i need to pre-populate the form with ticket data when the user is updating the form
 
   const handleTicketSubmit = (e) => {
     e.preventDefault();
@@ -52,11 +55,12 @@ function TicketFormPage() {
       newTicket.id = ticketId;
       dispatch(updateTicket(eventId, ticket));
     } else {
-      dispatch(createTicket(eventId, newTicket));
+      dispatch(createEventTicket(eventId, newTicket));
     }
     history.push(`/users/${currentUser.id}/events`);
   };
 
+  // I need to change ticket-header name to Edit tickets when updating the tickets
   return (
     <form onSubmit={handleTicketSubmit}>
       <div className="ticket-header">

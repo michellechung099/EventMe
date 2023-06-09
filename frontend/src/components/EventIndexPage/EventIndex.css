@@ -9,33 +9,32 @@
 }
 
 .header-image > img {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 50vh;
   object-fit: cover;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
+
 .event-list-container {
   /* display: flex; */
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  margin-top: 200px;
+  /* margin-top: 200px; */
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .bucket-content {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   overflow: hidden;
 }
 
-.bucket-header {
-  padding: 1rem;
-}
-
 .bucket-text {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  color: #1E0A3C;
 }
 
 .bucket-cards-container {
@@ -47,7 +46,75 @@
 
 .header-image {
   display: block;
-  max-height: 30vh;
-  max-width: 100%;
-  margin-bottom: 2rem;
+  /* max-height: 30vh; */
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.bucket-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bucket-header .event-list-ticket-icon {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+  font-size: 30px;
+  margin-top: 0.6vh;
+  color: grey;
+}
+
+.my-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: solid 1px #dbdae3;
+  padding: 5px;
+}
+
+.github-icon {
+  background-color: grey;
+  border-radius: 4px;
+  width: 35px;
+  height: 35px;
+  margin-right: 1rem;
+}
+
+.github-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.linkedin-icon-link {
+  width: 40px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.linkedin-icon-link img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .github-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .linkedin-icon-link {
+    width: 35px;
+    height: 35px;
+  }
+
+  .my-links {
+    border-top: solid 1px #dbdae3;
+    padding: 5px;
+  }
+
+  .event-list-ticket-icon {
+    font-size: 25px;
+  }
 }

@@ -28,6 +28,7 @@ class User < ApplicationRecord
     dependent: :destroy
 
   has_many :tickets,
+    foreign_key: :buyer_id,
     dependent: :destroy
 
   def self.find_by_credentials(email, password)

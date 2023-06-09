@@ -1,4 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 .event-right-ellipsis-dropdown {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 16px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.event-right-ellipsis-dropdown a {
+  display: block;
+  color: #39364f;
+}
+
+.event-right-ellipsis-dropdown button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #39364f;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+.event-right-ellipsis-dropdown a,
+.event-right-ellipsis-dropdown button {
+  padding: 5px;
+  transition: background-color 0.2s;
+}
+
+.event-right-ellipsis-dropdown a:hover,
+.event-right-ellipsis-dropdown button:hover {
+  background-color: lightgrey;
+}
+
+.event-right {
+  position: relative;
+  display: inline-block;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-container {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.event-left {
+  height: 100%;
+  width: 80%;
+  display: flex;
+}
+
+.user-event-image {
+  height: 100%;
+  /* width: 30%; */
+  margin-right: 10px;
+}
+
+.user-event-image > img {
+  height: 100%;
+  width: 100%;
+  max-width: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.event-right {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-event-date {
+  width: 6%;
+}
+
+.user-event-info {
+  display: flex;
+  width: 80%;
+}
+
+.user-event-title > h1 {
+  font-size: 14px;
+}
+
+.user-event-title > p {
+  font-size: 12px;
+}
+
+.user-event-title {
+  width: 70%;
+}
+
+.ticket-index {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tickets {
+  flex-direction: column;
+}
+
+.ticket-event-name {
+  font-size: 24px;
+  margin-bottom: 0;
+}
+
+.manage-my-events-header {
+  font-size: 1.5vw;
+  margin-left: 10vw;
+}
+
+.manage-my-events-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2vw;
+}
+
+.manage-my-events-title {
+  background-color: #F8F7FA;
+  font-weight: 300;
+  font-size: 1.1vw;
+  padding-left: 24px;
+  padding-right: 24px;
+  line-height: 2.5;
+}
+
+.manage-my-events-event {
+  width: 80%;
+}
+
+.manage-my-events-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+  .manage-my-events-title {
+    background-color: #F8F7FA;
+    font-weight: 300;
+    font-size: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    line-height: 2.5;
+    margin-top: 5px;
+  }
+
+  .manage-my-events-header {
+    font-size: 15px;
+  }
+
+  .user-event-description, .user-event-ticket-quantity {
+    display: none;
+  }
+
+  .user-event-date {
+    width: auto;
+    margin-right: 10px;
+    margin-left: 0;
+  }
+
+  .event-left {
+    width: 100%;
+  }
+
+  .list {
+    padding: 0;
+  }
+
+  .event-right-ellipsis-dropdown {
+    width: 120px;
+    top: 35px;
+  }
+
+  .event-right svg {
+    font-size: 25px;
+    margin-top: 10px;
+  }
 }

@@ -16,7 +16,14 @@ function EventCard({event}){
 
   function formatDate(dateString) {
     const date = new Date(dateString);
-    const formatter = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric" });
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
     return formatter.format(date);
   }
 

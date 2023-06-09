@@ -24,32 +24,32 @@ function ProfileButton({user}) {
 
   return (
     <>
-       <div className="right-side" onMouseEnter={openMenu} onMouseLeave={closeMenu}>
-        <div className="profile-dropdown">
-          <div className="dropdown-profile-icon">
-            <HiOutlineUserCircle id="user-icon" />
+      <div className="profile-right-side" onMouseEnter={openMenu} onMouseLeave={closeMenu}>
+          <div className="user-profile-container">
+            <div className="dropdown-profile-icon">
+              <HiOutlineUserCircle id="user-icon" />
+            </div>
+            <div className="dropdown-email">{user.email}</div>
+            <div className="dropdown-caret-icon">
+              <RxCaretDown id="caret-icon" />
+            </div>
           </div>
-          <div className="dropdown-email">{user.email}</div>
-          <div className="dropdown-caret-icon">
-            <RxCaretDown id="caret-icon" />
+          {showMenu && (
+          <div className="dropdown-content">
+            <div className='profile-dropdown'>
+              <div className="manage-my-events-link">
+                <NavLink to={`/users/${user.id}/events`}>Manage my events</NavLink>
+              </div>
+              <div className="user-tickets-link">
+                <NavLink to={`/users/${user.id}`}>Tickets</NavLink>
+              </div>
+              <div className="user-logout-link">
+                <NavLink to="logout" onClick={logout}>Log Out</NavLink>
+              </div>
+            </div>
           </div>
+          )}
         </div>
-        {showMenu && (
-        <div className="dropdown-content">
-          <div className='profile-dropdown'>
-            <div>
-              <NavLink to={`/users/${user.id}/events`}>Manage my events</NavLink>
-            </div>
-            <div>
-              <NavLink to={`/users/${user.id}`}>Tickets</NavLink>
-            </div>
-            <div>
-              <NavLink to="logout" onClick={logout}>Log Out</NavLink>
-            </div>
-          </div>
-        </div>
-        )}
-    </div>
     </>
   );
 }

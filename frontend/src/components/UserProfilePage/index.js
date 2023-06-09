@@ -39,6 +39,8 @@ function UserProfilePage () {
     dispatch(deleteEvent(eventId));
   }
 
+  console.log(`tickets: ${JSON.stringify(tickets)}`);
+
   return (
     <>
       <div className="user-profile">
@@ -54,12 +56,27 @@ function UserProfilePage () {
         </div>
         <div className="tickets">
           <h3 className="ticket-orders">Orders</h3>
-          {tickets.map((ticket) => (
-            <li className="">
-              <h1 className="ticket-event-name">{ticket.eventName}</h1>
-              <p className="ticket-name">{ticket.name}</p>
-            </li>
-          ))}
+          <ul className="ticket-list">
+            {tickets.map((ticket) => (
+              <li key={ticket.id} className="ticket-container">
+                <div className="user-ticket-left">
+                  <div className="user-ticket-event-date">
+                    {formatDate(ticket.event.startTime)}
+                  </div>
+                  <div className="user-ticket-event-info">
+                    <div className="user-ticket-event-image">
+                      <img src={ticket.event.photoUrl} />
+                    </div>
+                    <div className="user-ticket-event-title">
+                      <h1>{ticket.event.title}</h1>
+                      <p className="user-ticket-event-description">{ticket.event.description}</p>
+                      <p className="user-ticket-quantity">ticket quantity: {ticket.quantity}</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>

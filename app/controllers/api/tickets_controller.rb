@@ -13,11 +13,10 @@ class Api::TicketsController < ApplicationController
     render 'api/tickets/index'
   end
 
-  def purchase_ticket
+  def create_event_ticket
     @event = Event.find(params[:event_id])
-    @ticket = Ticket.find(params[:ticket_id])
-    @ticket.user_id = current_user.id
-    @ticket.event_id = params[:event_id]
+    @ticket = EventTicket.find(params[:ticket_id])
+    @ticket.buyer_id = current_user.id
     @event.ticket_quantity += params[:ticket][:quantity].to_i
     @event.save!
 
@@ -30,11 +29,11 @@ class Api::TicketsController < ApplicationController
   end
 
   def create
-    @event = Event.find(params[:event_id])
     @ticket = Ticket.new(ticket_params)
-    @ticket.user_id = current_user.id
-    @ticket.event_id = params[:event_id]
-    @event.ticket_quantity += params[:ticket][:quantity].to_i
+    puts "@ticket: #{@ticket.inspect}"
+    puts "ticket_params: #{ticket_params.inspect}"
+    @event = Event.find(params[:event_id])
+    @event.ticket_quantity -= params[:ticket][:quantity].to_i
     @event.save!
 
     if @ticket.save!
@@ -57,8 +56,8 @@ class Api::TicketsController < ApplicationController
 
   def update
     @event = Event.find(params[:event_id])
-    @ticket = Ticket.find_by(event_id: params[:event_id])
-    @ticket.user_id = current_user.id
+    @ticket = EventTicket.find_by(event_id: params[:event_id])
+    @ticket.buyer_id = current_user.id
     @ticket.event_id = params[:event_id]
 
     if @ticket.save!
@@ -73,7 +72,7 @@ class Api::TicketsController < ApplicationController
   def reduce
     @event = Event.find(params[:event_id])
     @ticket = Ticket.find_by(event_id: params[:event_id])
-    @ticket.user_id = current_user.id
+    @ticket.buyer_id = current_user.id
     @ticket.event_id = params[:event_id]
 
     if @ticket.save!
@@ -88,16 +87,8 @@ class Api::TicketsController < ApplicationController
   private
   def ticket_params
     params.require(:ticket).permit(
-      :event_id,
-      :name,
-      :price,
       :quantity,
-      :sales_start_time,
-      :sales_end_time
-      # might want to get rid of name for now
-      # later, can put name back in to allow filtering & update tickets in accordance
-      # as well as filter for purchase
-      # for now, i can also just change one event to have one ticket name
+      :event_ticket_id,
     )
   end
 end

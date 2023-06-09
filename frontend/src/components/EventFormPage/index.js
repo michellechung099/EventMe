@@ -190,13 +190,6 @@ function EventFormPage() {
 
   return (
     <>
-    {/* <div className="sidebar">
-      <li><NavLink className="info-link" to="/">Basic Info</NavLink></li>
-      <li><NavLink className="details-link" to="/">Details</NavLink></li>
-      <li><NavLink className="tickets-link" to="/">Tickets</NavLink></li>
-      <li><NavLink className="publish-link" to="/">Publish</NavLink></li>
-    </div> */}
-
     <div className="event-form-container">
       <form onSubmit={onSubmit} className="event-create-form">
         <ul>
@@ -388,16 +381,13 @@ function EventFormPage() {
             <h3>Images</h3>
           </div>
           <div className="images-directions">
-            <span className="directions">Add photos to show what your event will be about. You can upload up to 10 images.</span>
+            <span className="directions">Add photos to show what your event will be about.</span>
           </div>
 
           <div className="upload-image-box">
             {/* <div className="image-icon">
               <GrImage />
             </div> */}
-            <div className="image-text">
-              Drag and drop an image or
-            </div>
             <div>
               {photoUrl ? (
                 <div className="photo-preview">

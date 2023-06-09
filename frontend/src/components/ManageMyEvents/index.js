@@ -50,7 +50,7 @@ function ManageMyEvents() {
 
         <div className="manage-my-events-main">
           <div className="manage-my-events-event">
-            <h3>Event</h3>
+            <h3 className="manage-my-events-title">Event</h3>
             <ul className="list">
               {userEvents.map((event) => (
                 <li key={event.id} className="event-container">
@@ -64,8 +64,8 @@ function ManageMyEvents() {
                       </div>
                       <div className="user-event-title">
                         <h1>{event.title}</h1>
-                        <p>{event.description}</p>
-                        <p>ticket quantity: {event.ticketQuantity}</p>
+                        <p className="user-event-description">{event.description}</p>
+                        <p className="user-event-ticket-quantity">ticket quantity: {event.ticketQuantity}</p>
                       </div>
                     </div>
                   </div>

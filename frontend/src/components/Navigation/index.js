@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import eventbriteLogo from '../../assets/eventbriteLogo.png';
-import { AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -35,20 +36,25 @@ function Navigation() {
           <NavLink exact to="/">
             <h1 className="logo">eventme</h1>
           </NavLink>
+          <div className="search-bar">
+            <div className="icon">
+              <AiOutlineSearch className="search-icon"/>
+            </div>
+            <div className="search">
+              <input type="text" placeholder="Search events" className="search-input" />
+            </div>
+          </div>
         </div>
 
-        <div className="search-bar">
-          <div className="icon">
-            <AiOutlineSearch className="search-icon"/>
-          </div>
-          <div className="search">
-            <input type="text" placeholder="Search events" className="search-input" />
-          </div>
-        </div>
 
         <div className="right-side-nav">
           <div className="create-an-event">
-            <NavLink exact to="/events/new">Create an event</NavLink>
+            <div className="plus-sign">
+              <AiOutlinePlus />
+            </div>
+            <div className="create-an-event-link">
+              <NavLink exact to="/events/new">Create an event</NavLink>
+            </div>
           </div>
           <div className="session-links">{sessionLinks}</div>
         </div>

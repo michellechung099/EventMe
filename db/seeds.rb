@@ -13,11 +13,15 @@ ApplicationRecord.transaction do
   # Unnecessary if using `rails db:seed:replant`
   Event.destroy_all
   User.destroy_all
+  EventTicket.destroy_all
+  Ticket.destroy_all
 
   puts "Resetting primary keys..."
   # For easy testing, so that after seeding, the first `User` has `id` of 1
   ApplicationRecord.connection.reset_pk_sequence!('users')
   ApplicationRecord.connection.reset_pk_sequence!('events')
+  ApplicationRecord.connection.reset_pk_sequence!('event_tickets')
+  ApplicationRecord.connection.reset_pk_sequence!('tickets')
 
   puts "Creating users..."
   # Create one user with an easy to remember username, email, and password:
@@ -169,21 +173,28 @@ event8 = Event.create!({
 photo8 = URI.open('https://eventme-seeds.s3.us-west-1.amazonaws.com/frank-rolando-romero-ZHoOhrH-yVs-unsplash.jpg')
 event8.photo.attach(io: photo8, filename:'frank-rolando-romero-ZHoOhrH-yVs-unsplash.jpg')
 
-ticket1 = Ticket.create!({
+event_ticket1 = EventTicket.create!({
   event_id: 1,
   name: "general admission",
-  price: 0.00,
-  quantity: 15,
-  sales_start_time: '2023-05-15T15:00:00',
-  sales_end_time: '2023-05-20T14:00:00'
+  unit_price: 0.00,
+  quantity: 10,
+  sales_start_time: '2023-05-15T04:00:00',
+  sales_end_time: '2023-06-05T04:00:00',
+  user_id: 1
 })
 
-# Event.each_with_index do |event, index|
-#   event.photo.attach(
-#     io: URI.open()
-#     filename: "event_"
-#   )
-# end
+event_ticket2 = EventTicket.create!({
+  event_id: 2,
+  name: "general admission",
+  unit_price: 0.00,
+  quantity: 50,
+  sales_start_time: '2023-06-07T14:30:00',
+  sales_end_time: '2023-07-20T14:30:00',
+  user_id: 2
+})
 
-# photo1 = URI.open('')
-# event1.photo.attach(io: photo1, filename:'')
+ticket1 = Ticket.create!({
+  quantity: 1,
+  buyer_id: 1,
+  event_ticket_id: 1
+})

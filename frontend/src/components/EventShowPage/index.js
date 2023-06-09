@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchEvent } from "../../store/events";
 import './EventShow.css'
 import TicketPurchaseForm from "../TicketPurchaseForm";
+import { AiTwotoneCalendar } from 'react-icons/ai';
+import { MdLocationOn } from 'react-icons/md';
 
 function EventShowPage() {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ function EventShowPage() {
     return null;
   }
 
-  const {title, photoUrl, location, startTime, endTime, summary, userId, description } = event;
+  const {title, photoUrl, location, startTime, endTime, summary, userId, description, eventTicketId, ticketQuantity } = event;
 
   return(
    <div className="event-show-page">
@@ -37,39 +39,42 @@ function EventShowPage() {
          <div className="event-details">
            <div className="event-details-main">
              <div className="event-details-top">
-               <time className="start-date">{formatDate(startTime)}</time>
-               <h1 className="event-title">{title}</h1>
+               <time className="event-start-date">{formatDate(startTime)}</time>
+               <h1 className="event-show-page-event-title">{title}</h1>
                <strong className="event-summary">{summary}</strong>
              </div>
              <div className="event-details-when-where">
                <div className="when-where">
                  <h2>When and where</h2>
                </div>
-               <div className="date-time">
-                 <div className="detail-icon">
-
-                 </div>
-                 <div className="detail-content">
-                   <div className="date-and-time">
-                     <h3>Date and time</h3>
-                   </div>
-                   <time className="date">{formatDate(startTime)}</time>
-                   {/* <time className="date">end: {formatDate(endTime)}</time> */}
-                 </div>
-               </div>
-               <div className="location">
-                 <div className="location-icon">
-
-                 </div>
-                 <div className="location-content">
-                   <div className="location-title">
-                     <h3>Location</h3>
-                   </div>
-                   <div className="location-details">
-                     <p>{location}</p>
-                   </div>
-                 </div>
-               </div>
+               <div className="when-where-container">
+                <div className="date-time">
+                  <div className="detail-icon">
+                    <AiTwotoneCalendar />
+                  </div>
+                  <div className="detail-content">
+                    <div className="date-and-time">
+                      <h3>Date and time</h3>
+                    </div>
+                    <div className="date">
+                      <p>{formatDate(startTime)}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="location">
+                  <div className="location-icon">
+                    <MdLocationOn />
+                  </div>
+                  <div className="location-content">
+                    <div className="location-title">
+                      <h3>Location</h3>
+                    </div>
+                    <div className="location-details">
+                      <p>{location}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
              </div>
              <div className="event-details-refund">
                <h2>Refund Policy</h2>
@@ -88,7 +93,7 @@ function EventShowPage() {
            </div>
          </div>
          <div className="ticket-form-container">
-           <TicketPurchaseForm />
+           <TicketPurchaseForm eventTicketId={eventTicketId} totalQuantity={ticketQuantity} />
          </div>
        </div>
      </div>

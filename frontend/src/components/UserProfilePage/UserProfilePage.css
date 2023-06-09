@@ -1,22 +1,27 @@
 .user-profile {
-  background-color: #fff;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  height: 100%;
 }
 
 .user-header {
+  display: flex;
   padding-top: 48px;
   padding-bottom: 64px;
   /* width: 200px; */
   height: 124px;
+  margin-top: 30px;
 }
+
 .user-content {
-  /* border: red solid 3px; */
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
+
 .circle {
   display: flex;
   position: relative;
@@ -38,53 +43,42 @@
 }
 
 .username {
-  /* border: purple solid 3px; */
   font-size: 28px;
   font-weight: 700;
   margin: 20px;
 }
 
-.user-events {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  /* border: pink solid 2px; */
-  border-bottom: #a9a8b3 solid 1px;
-}
-
 .tickets {
   display: flex;
   margin: 20px;
-  /* border: pink solid 2px; */
-  border-bottom: #a9a8b3 solid 1px;
 }
 
-.list {
+.ticket-list {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.event-container {
+.ticket-container {
   height: 100px;
   width: 100%;
   display: flex;
   margin-bottom: 20px;
 }
 
-.event-left {
+.user-ticket-left {
   height: 100%;
   width: 80%;
   display: flex;
 }
 
-.user-event-image {
+.user-ticket-event-image {
   height: 100%;
   /* width: 30%; */
   margin-right: 10px;
 }
 
-.user-event-image > img {
+.user-ticket-event-image > img {
   height: 100%;
   width: 100%;
   max-width: 100px;
@@ -97,24 +91,24 @@
   width: 20%;
 }
 
-.user-event-date {
-  width: 6%;
+.user-ticket-event-date {
+  width: 9%;
 }
 
-.user-event-info {
+.user-ticket-event-info {
   display: flex;
   width: 80%;
 }
 
-.user-event-title > h1 {
+.user-ticket-event-title > h1 {
   font-size: 14px;
 }
 
-.user-event-title > p {
+.user-ticket-event-title > p {
   font-size: 12px;
 }
 
-.user-event-title {
+.user-ticket-event-title {
   width: 70%;
 }
 
@@ -130,5 +124,33 @@
 
 .ticket-event-name {
   font-size: 24px;
-  margin-bottom: 0; 
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .tickets {
+    margin-top: -7px;
+  }
+
+  .ticket-container {
+    width: 100%;
+  }
+
+  .user-ticket-event-description, .user-ticket-quantity {
+    display: none;
+  }
+
+  .user-ticket-left {
+    width: 100%;
+  }
+
+  .ticket-list {
+    padding: 0;
+  }
+
+  .user-ticket-event-date {
+    width: auto;
+    margin-right: 5px;
+    margin-left: 0;
+  }
 }

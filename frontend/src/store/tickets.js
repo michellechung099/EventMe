@@ -48,7 +48,26 @@ export const fetchTicket = ticketId => async(dispatch) => {
   }
 }
 
-export const createTicket = (eventId, eventTicket) => async(dispatch) => {
+export const createTicket = (eventId, ticket) => async(dispatch) => {
+  const response = await csrfFetch(`/api/events/${eventId}/tickets`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+    },
+    body: JSON.stringify({ticket})
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    console.log(`data: ${data}`);
+    dispatch(addTicket(data.ticket));
+
+    return response;
+  }
+};
+
+export const createEventTicket = (eventId, eventTicket) => async(dispatch) => {
   const response = await csrfFetch(`/api/events/${eventId}/event_tickets`, {
     method: 'POST',
     headers: {
@@ -65,7 +84,7 @@ export const createTicket = (eventId, eventTicket) => async(dispatch) => {
 
     return response;
   }
-};
+}
 
 export const updateTicket = (eventId, ticketId, quantity) => async(dispatch) => {
   const response = await csrfFetch(`/api/events/${eventId}/tickets/${ticketId}`, {

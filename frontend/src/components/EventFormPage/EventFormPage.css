@@ -1,42 +1,26 @@
-.sidebar {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 100px;
-  left: 0;
-  overflow-x: hidden;
-  background-color: #f8f7fa;
+.event-form-container {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
 }
 
-.sidebar li {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
-}
-
-.sidebar li a {
-  color: #4b4d63;
+.event-form-container div {
+  width: 100%;
 }
 
 .event-create-form {
-  /* margin-left: 250px; */
+  margin-left: 20vw;
   padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 48px;
 }
 
 .event-form-container .event-create-form {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.event-create-form {
-  margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 48px;
-  display: flex;
-  flex-direction: column;
 }
 
 .header-text {
@@ -48,6 +32,38 @@
 }
 
 .basic-info-directions .directions {
+  color: #39364f;
+  font-size: 14px;
+}
+
+.location-directions .directions {
+  color: #39364f;
+  font-size: 14px;
+}
+
+.date-and-time-directions .directions {
+  color: #39364f;
+  font-size: 14px;
+}
+
+.summary-directions .directions {
+  color: #39364f;
+  font-size: 14px;
+}
+
+.description-directions .directions {
+  color: #39364f;
+  font-size: 14px;
+}
+
+.event-details {
+  color: #39364f;
+  font-size: 14px;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.images-directions .directions {
   color: #39364f;
   font-size: 14px;
 }
@@ -80,6 +96,7 @@
 
 .location-directions {
   margin-bottom: 15px;
+  color: #39364f;
 }
 
 .date-and-time-directions {
@@ -94,12 +111,30 @@
   margin-bottom: 15px;
 }
 
+.summary-directions {
+  margin-bottom: 15px;
+}
+
 .upload {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 100%;
+  height: 30vh;
 }
+
+.upload-image-text {
+  color: #1E0A3C;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.small-image-icon {
+  margin-top: 8vh;
+  font-size: 5vw;
+  color: #dbdae3;
+}
+
 
 .date-and-time-header .event-button .single-event-button {
   border: 1px solid #3659e3;
@@ -120,6 +155,10 @@
   background: none;
   text-align: start;
   cursor: text;
+}
+
+.basic-info-header, .location-header, .date-and-time-header, .summary-header, .description-header {
+  border-bottom: solid 1px #EEEDFE;
 }
 
 .event-form-container input:focus, select:focus, textarea:focus {
@@ -180,4 +219,19 @@
 
 .rdrDateDisplayWrapper {
   display: none;
+}
+
+.publish-button {
+  border: 1px solid #3659e3;
+  color: #3659e3;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: rgba(54,89,227,.1);
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: 100%;
+  font-size: 2vh;
+  font-weight: 600;
 }
