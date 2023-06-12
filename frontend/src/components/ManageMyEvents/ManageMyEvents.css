@@ -152,6 +152,10 @@
   justify-content: center;
 }
 
+.ticket-modal {
+  width: 50%;
+}
+
 @media screen and (max-width: 800px) {
   .manage-my-events-title {
     background-color: #F8F7FA;

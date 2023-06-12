@@ -16,14 +16,14 @@ function TicketFormPage() {
   const currentUser = useSelector(state => state.session.user);
   const history = useHistory();
 
-  const [name, onNameChange] = useInput('');
-  const [unitPrice, onPriceChange] = useInput('');
-  const [quantity, onQuantityChange] = useInput('');
-  const [salesStartTime, onSalesStartTimeChange] = useInput('');
-  const [salesEndTime, onSalesEndTimeChange] = useInput('');
+  const [name, setName] = useState('');
+  const [unitPrice, setUnitPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [salesStartTime, setSalesStartTime] = useState('');
+  const [salesEndTime, setSalesEndTime] = useState('');
 
   const ticket = useSelector(state => ticketId? state.tickets[ticketId] : null);
-  // const event_ticket = useSelector(state => )
+  console.log(ticket);
 
   useEffect(()=> {
     if (ticketId) {
@@ -32,12 +32,12 @@ function TicketFormPage() {
   }, [dispatch, ticketId]);
 
   useEffect(() => {
-    if (ticket) {
-      onNameChange(ticket.name);
-      onPriceChange(ticket.unitPrice);
-      onQuantityChange(ticket.quantity);
-      onSalesStartTimeChange(ticket.salesStartTime);
-      onSalesEndTimeChange(ticket.salesEndTime);
+    if (ticketId) {
+      setName(ticket?.name);
+      setUnitPrice(ticket?.unitPrice);
+      setQuantity(ticket?.quantity);
+      setSalesStartTime(ticket?.salesStartTime);
+      setSalesEndTime(ticket?.salesEndTime);
     }
   }, [ticket])
   // i need to pre-populate the form with ticket data when the user is updating the form
@@ -63,67 +63,69 @@ function TicketFormPage() {
   // I need to change ticket-header name to Edit tickets when updating the tickets
   return (
     <form onSubmit={handleTicketSubmit}>
-      <div className="ticket-header">
-        <h1>Add tickets</h1>
-      </div>
-      <div className="ticket-name">
-        <label>
-          <input
-            type="text"
-            value={name}
-            onChange={onNameChange}
-            required
-            placeholder="Ticket name"
-          />
-        </label>
-      </div>
-      <div className="ticket-quantity">
-        <label>
-          <input
-            type="text"
-            value={quantity}
-            onChange={onQuantityChange}
-            required
-            placeholder="Available quantity"
-          />
-        </label>
-      </div>
-      <div className="ticket-price">
-        <label>
-          <input
-            type="text"
-            value={unitPrice}
-            onChange={onPriceChange}
-            required
-            placeholder="Price"
-          />
-        </label>
-      </div>
-      <div className="ticket-sales">
-        <label>
-          <input
-            type="text"
-            value={salesStartTime}
-            onChange={onSalesStartTimeChange}
-            required
-            placeholder="Sales start"
-          />
-        </label>
-      </div>
-      <div className="ticket-sales-end">
-        <label>
-          <input
-            type="text"
-            value={salesEndTime}
-            onChange={onSalesEndTimeChange}
-            required
-            placeholder="Sales end"
-          />
-        </label>
-      </div>
+      <div className="create-ticket-form-container">
+        <div className="ticket-header">
+          <h1>Add tickets</h1>
+        </div>
+        <div className="ticket-name">
+          <label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              placeholder="Ticket name"
+            />
+          </label>
+        </div>
+        <div className="ticket-quantity">
+          <label>
+            <input
+              type="text"
+              value={quantity}
+              onChange={(e)=> setQuantity(e.target.value)}
+              required
+              placeholder="Available quantity"
+            />
+          </label>
+        </div>
+        <div className="ticket-price">
+          <label>
+            <input
+              type="text"
+              value={unitPrice}
+              onChange={(e)=> setUnitPrice(e.target.value)}
+              required
+              placeholder="Price"
+            />
+          </label>
+        </div>
+        <div className="ticket-sales">
+          <label>
+            <input
+              type="text"
+              value={salesStartTime}
+              onChange={(e) => setSalesStartTime(e.target.value)}
+              required
+              placeholder="Sales start"
+            />
+          </label>
+        </div>
+        <div className="ticket-sales-end">
+          <label>
+            <input
+              type="text"
+              value={salesEndTime}
+              onChange={(e)=>setSalesEndTime(e.target.value)}
+              required
+              placeholder="Sales end"
+            />
+          </label>
+        </div>
 
-      <div className="tickets-save">
-        <button className="tickets-button">Save</button>
+        <div className="tickets-save">
+          <button className="tickets-button">Save</button>
+        </div>
       </div>
     </form>
   )

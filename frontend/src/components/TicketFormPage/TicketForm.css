@@ -1,0 +1,20 @@
+.create-ticket-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.ticket-header {
+  color: #1e0a3c;
+  font-weight: 700;
+  line-height: 2.25rem;
+}
+
+.create-ticket-form-container input {
+  margin: 8px;
+}
+
+.tickets-save .tickets-button {
+  width: 100%;
+}

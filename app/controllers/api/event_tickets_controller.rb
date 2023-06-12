@@ -5,7 +5,7 @@ class Api::EventTicketsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @ticket = EventTicket.new(event_ticket_params)
-    @ticket.buyer_id = current_user.id
+    @ticket.user_id = current_user.id
     @ticket.event_id = params[:event_id]
     @event.ticket_quantity += params[:event_ticket][:quantity].to_i
     @event.save!

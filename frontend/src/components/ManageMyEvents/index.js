@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { MdMoreVert } from 'react-icons/md';
 import { useState } from "react";
 import './ManageMyEvents.css';
+// import Modal from 'react-modal';
+import { Modal } from "../../context/Modal"
 
 function ManageMyEvents() {
   const dispatch = useDispatch();
@@ -16,11 +18,16 @@ function ManageMyEvents() {
   const userEvents = useSelector(state => state.events ? Object.values(state.events) : []);
   const tickets = useSelector(state => state.tickets ? Object.values(state.tickets) : []);
   const [showDropdown, setShowDropdown] = useState(null);
+  const [showTicketModal, setShowTicketModal] = useState(false);
 
   useEffect(()=> {
     dispatch(fetchUserEvents())
     dispatch(fetchTickets())
   }, [dispatch]);
+
+  const toggleTicketModal = () => {
+    setShowTicketModal(!showTicketModal);
+  };
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -73,7 +80,8 @@ function ManageMyEvents() {
                       <MdMoreVert onClick={() => toggleDropdown(event.id)}/>
                         {showDropdown === event.id && (
                           <div className="event-right-ellipsis-dropdown">
-                            <NavLink to={`/tickets/${event.id}/new`}>Add Tickets</NavLink>
+                            <NavLink to="#" onClick={toggleTicketModal}>Add Tickets</NavLink>
+                            {/* <NavLink to={`/tickets/${event.id}/new`}>Add Tickets</NavLink> */}
                             <NavLink to={`/tickets/${event.id}/new`}>Edit Tickets</NavLink>
                             <button onClick={(e) => handleDelete(e, event.id)}>Delete Event</button>
                             <NavLink to={`/events/${event.id}/update`}>Edit Event</NavLink>
@@ -87,6 +95,12 @@ function ManageMyEvents() {
           </div>
         </div>
       </div>
+      <Modal onClose={() => setShowTicketModal(false)}>
+        <TicketFormPage
+          openTicketModal={() => setShowTicketModal(true)}
+          closeTicketModal={() => setShowTicketModal(false)}
+        />
+      </Modal>
     </>
   )
 }
