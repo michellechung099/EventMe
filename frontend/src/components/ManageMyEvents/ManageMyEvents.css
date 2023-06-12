@@ -15,6 +15,17 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
+.add-ticket-link {
+  display: block;
+  color: #39364f;
+  padding: 5px;
+  transition: background-color 0.2s;
+}
+
+.add-ticket-link:hover {
+  background-color: lightgrey;
+}
+
 .event-right-ellipsis-dropdown a {
   display: block;
   color: #39364f;
@@ -87,7 +98,9 @@
 }
 
 .user-event-date {
-  width: 6%;
+  width: 8%;
+  font-size: 14px;
+  margin-right: 5px;
 }
 
 .user-event-info {
@@ -136,7 +149,7 @@
 .manage-my-events-title {
   background-color: #F8F7FA;
   font-weight: 300;
-  font-size: 1.1vw;
+  font-size: 15px;
   padding-left: 24px;
   padding-right: 24px;
   line-height: 2.5;
@@ -158,17 +171,24 @@
 
 @media screen and (max-width: 800px) {
   .manage-my-events-title {
-    background-color: #F8F7FA;
-    font-weight: 300;
-    font-size: 20px;
+    /* background-color: #F8F7FA; */
+    background-color: #fff;
+    font-weight: 600;
+    font-size: 15px;
     padding-left: 2px;
     padding-right: 2px;
     line-height: 2.5;
     margin-top: 5px;
+    color: #3659E3;
+    /* padding: 12px; */
+    border-bottom: 2px solid #3659e3;
+    width: 20%;
+    margin-bottom: 50px;
   }
 
   .manage-my-events-header {
     font-size: 15px;
+    margin-left: 0;
   }
 
   .user-event-description, .user-event-ticket-quantity {

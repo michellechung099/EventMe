@@ -10,7 +10,7 @@ import { MdMoreVert } from 'react-icons/md';
 import { useState } from "react";
 import './ManageMyEvents.css';
 // import Modal from 'react-modal';
-import { Modal } from "../../context/Modal"
+import { Modal, ModalProvider } from "../../context/Modal"
 
 function ManageMyEvents() {
   const dispatch = useDispatch();
@@ -19,15 +19,13 @@ function ManageMyEvents() {
   const tickets = useSelector(state => state.tickets ? Object.values(state.tickets) : []);
   const [showDropdown, setShowDropdown] = useState(null);
   const [showTicketModal, setShowTicketModal] = useState(false);
+  const [eventId, setEventId] = useState(null);
+  const [eventTicketId, setEventTicketId] = useState(null);
 
   useEffect(()=> {
     dispatch(fetchUserEvents())
     dispatch(fetchTickets())
   }, [dispatch]);
-
-  const toggleTicketModal = () => {
-    setShowTicketModal(!showTicketModal);
-  };
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -48,6 +46,10 @@ function ManageMyEvents() {
     }
   }
 
+  const closeTicketModal = () => {
+    setShowTicketModal(false);
+  };
+
   return (
     <>
       <div className="manage-my-events-container">
@@ -57,7 +59,7 @@ function ManageMyEvents() {
 
         <div className="manage-my-events-main">
           <div className="manage-my-events-event">
-            <h3 className="manage-my-events-title">Event</h3>
+            <h3 className="manage-my-events-title">Events</h3>
             <ul className="list">
               {userEvents.map((event) => (
                 <li key={event.id} className="event-container">
@@ -80,9 +82,11 @@ function ManageMyEvents() {
                       <MdMoreVert onClick={() => toggleDropdown(event.id)}/>
                         {showDropdown === event.id && (
                           <div className="event-right-ellipsis-dropdown">
-                            <NavLink to="#" onClick={toggleTicketModal}>Add Tickets</NavLink>
+                            <div className="add-ticket-link" onClick={() => { setShowTicketModal(true); setEventId(event.id);
+                            }}>Add Tickets</div>
                             {/* <NavLink to={`/tickets/${event.id}/new`}>Add Tickets</NavLink> */}
-                            <NavLink to={`/tickets/${event.id}/new`}>Edit Tickets</NavLink>
+                            <div className="add-ticket-link" onClick={() => { setShowTicketModal(true); setEventId(event.id); setEventTicketId(event.eventTicketId);
+                            }}>Edit Tickets</div>
                             <button onClick={(e) => handleDelete(e, event.id)}>Delete Event</button>
                             <NavLink to={`/events/${event.id}/update`}>Edit Event</NavLink>
                             <NavLink to={`/events/${event.id}`}>View Event</NavLink>
@@ -95,12 +99,19 @@ function ManageMyEvents() {
           </div>
         </div>
       </div>
-      <Modal onClose={() => setShowTicketModal(false)}>
-        <TicketFormPage
-          openTicketModal={() => setShowTicketModal(true)}
-          closeTicketModal={() => setShowTicketModal(false)}
-        />
-      </Modal>
+      {showTicketModal && (
+        <Modal onClose={()=> {
+          closeTicketModal();
+          setEventId(null);}}
+        >
+          <TicketFormPage
+            eventId={eventId}
+            eventTicketId={eventTicketId}
+            openTicketModal={() => setShowTicketModal(true)}
+            closeTicketModal={closeTicketModal}
+          />
+        </Modal>
+      )}
     </>
   )
 }

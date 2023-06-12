@@ -63,7 +63,7 @@
   position: absolute;
   width: 100%;
   /* right: 0; */
-  top: 99%;
+  top: 60%;
   background-color: #f9f9f9;
   /* min-width: 160px; */
   padding: 5px;
@@ -93,6 +93,11 @@
   display: block;
 }
 
+.login-link:hover,
+.signup-link:hover {
+  background-color: #f8f7fa;
+}
+
 .profile-dropdown {
   display: flex;
   flex-direction: column;
@@ -114,9 +119,17 @@
 .loginlink-container {
   display: flex;
 }
+
 .login-link {
   margin-left: 10px;
   margin-right: 10px;
+  color: #39364F;
+  text-decoration: none;
+}
+
+.signup-link {
+  color: #39364F;
+  text-decoration: none;
 }
 
 .nav-left h1 {

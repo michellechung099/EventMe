@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :events, only: [:create, :update, :destroy, :index, :show] do
       resources :tickets, only: [:index, :purchased_tickets, :show, :create, :update, :destroy]
-      resources :event_tickets, only: %i[create]
+      resources :event_tickets, only: %i[create update]
     end
     get 'user/events/user_events', to: 'events#user_events'
     get '/tickets', to: 'tickets#index'

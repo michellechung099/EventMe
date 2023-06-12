@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { fetchUserEvents } from "./events";
 
 //action constants
 const SET_TICKETS = 'tickets/setTickets';
@@ -79,6 +80,25 @@ export const createEventTicket = (eventId, eventTicket) => async(dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(addTicket(data.ticket));
+
+    return response;
+  }
+}
+
+export const updateEventTicket = (eventId, eventTicketId, eventTicket) => async(dispatch) => {
+  const response = await csrfFetch(`/api/events/${eventId}/event_tickets/${eventTicketId}`, {
+    method: 'PATCH',
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+    },
+    body: JSON.stringify({eventTicket})
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(addTicket(data.ticket));
+    dispatch(fetchUserEvents());
 
     return response;
   }

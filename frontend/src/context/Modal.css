@@ -25,36 +25,34 @@
   background-color: white;
   border-radius: 10px;
   width: 400px;
-  height: 70vh;
+  height: 400px;
   z-index: 50;
 }
 
 @media (max-width: 977px) {
   #modal-content {
-    width: 100%;
-
+    width: 400px;
+    height: 400px;
   }
 }
 
 @media (max-height: 833px) {
   #modal-content {
-    height: 90vh;
+    height: 350px;
   }
 }
 
 @media (max-height: 671px) {
   #modal-content {
-    height: 100vh;
+    height: 400px;
   }
 }
 
 
 @media (max-width: 768px) {
   #modal-content {
-    width: 100vw;
-    top: 40px;
-    left: 0;
-    height: calc(100vh - 40px);
+    width: 400px;
+    height: 400px;
     overflow: auto;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */

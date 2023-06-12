@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
 import logIn from '../../assets/logIn.png';
+import { NavLink } from "react-router-dom";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -49,7 +50,12 @@ function LoginFormPage() {
       <div className="login-form-split-screen">
         <div className="login-form-left-side">
           <div className="login-form-container">
-            <h1 className="login-text">Log In</h1>
+            <div className="login-form-header">
+              <NavLink exact to="/">
+                <h1 className="login-form-logo">eventme</h1>
+              </NavLink>
+                <h1 className="login-text">Log in</h1>
+            </div>
 
             <form className="login-form" onSubmit={handleSubmit}>
               <ul>
