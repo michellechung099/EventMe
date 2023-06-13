@@ -62,10 +62,8 @@
   display: none;
   position: absolute;
   width: 100%;
-  /* right: 0; */
-  top: 60%;
-  background-color: #f9f9f9;
-  /* min-width: 160px; */
+  top: 80%;
+  background-color: #fff;
   padding: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 2;
@@ -83,6 +81,8 @@
 
 .profile-right-side {
   position: relative;
+  height: 100%;
+  display: flex;
 }
 
 .profile-right-side a:hover, .profile-right-side .dropdown:hover .dropbtn {
@@ -111,6 +111,10 @@
   padding: 10px 5px;
 }
 
+.profile-dropdown div:hover {
+  background-color: #f8f7fa;
+}
+
 .user-profile-container {
   display: flex;
   align-items: center;
@@ -123,7 +127,6 @@
   display: flex;
   height: 100%;
   align-items: center;
-  margin-left: 8px;
 }
 
 .login-link a {
@@ -187,7 +190,7 @@
   color:rgb(61, 100, 255);
 }
 
-/* .right-side-nav .session-links:hover {
+/* .session-links:hover {
   background-color:#f8f7fa;
 } */
 
