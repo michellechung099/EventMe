@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 import signUp from '../../assets/signUp.png';
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -59,7 +60,17 @@ function SignupFormPage() {
       <div className="sign-up-form-split-screen">
         <div className="sign-up-left-side">
           <div className="sign-up-form-container">
-            <h1 className="signup-text">Create an account</h1>
+            <div className="sign-up-form-header">
+              <NavLink exact to="/">
+                <h1 className="login-form-logo">eventme</h1>
+              </NavLink>
+              <div className="signup-text-and-links">
+                <h1 className="signup-text">Create an account</h1>
+                <NavLink className="signup-header-login-link" exact to="/login">
+                  Log in
+                </NavLink>
+              </div>
+            </div>
 
             <form className="sign-up-form" onSubmit={handleSubmit}>
               <ul>

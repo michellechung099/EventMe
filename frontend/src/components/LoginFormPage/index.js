@@ -54,7 +54,12 @@ function LoginFormPage() {
               <NavLink exact to="/">
                 <h1 className="login-form-logo">eventme</h1>
               </NavLink>
+              <div className="login-text-and-links">
                 <h1 className="login-text">Log in</h1>
+                <NavLink className="login-header-signup-link" exact to="/signup">
+                  Sign up
+                </NavLink>
+              </div>
             </div>
 
             <form className="login-form" onSubmit={handleSubmit}>

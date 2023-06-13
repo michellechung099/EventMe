@@ -18,8 +18,12 @@ function Navigation() {
   } else {
     sessionLinks = (
       <div className='loginlink-container'>
-        <NavLink className="login-link" to="/login">Log In</NavLink>
-        <NavLink className="signup-link" to="/signup">Sign Up</NavLink>
+        <div className="login-link">
+          <NavLink to="/login">Log In</NavLink>
+        </div>
+        <div className="signup-link">
+          <NavLink to="/signup">Sign Up</NavLink>
+        </div>
       </div>
     );
   }

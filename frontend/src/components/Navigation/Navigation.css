@@ -93,8 +93,11 @@
   display: block;
 }
 
-.login-link:hover,
-.signup-link:hover {
+.login-link a:hover {
+  background-color: #f8f7fa;
+}
+
+.signup-link a:hover {
   background-color: #f8f7fa;
 }
 
@@ -118,16 +121,18 @@
 
 .loginlink-container {
   display: flex;
+  height: 100%;
+  align-items: center;
 }
 
-.login-link {
+.login-link a {
   margin-left: 10px;
   margin-right: 10px;
   color: #39364F;
   text-decoration: none;
 }
 
-.signup-link {
+.signup-link a {
   color: #39364F;
   text-decoration: none;
 }
@@ -183,9 +188,9 @@
   color:rgb(61, 100, 255);
 }
 
-.right-side-nav .session-links:hover {
+/* .right-side-nav .session-links:hover {
   background-color:#f8f7fa;
-}
+} */
 
 .manage-my-events-link {
   border-bottom: solid 1px lightgrey;
@@ -210,6 +215,11 @@
   color: #4b4d63;
 }
 
+.login-link, .signup-link {
+  font-size: 13px;
+  font-weight: 600;
+}
+
 @media screen and (max-width: 900px){
   .dropdown-email,
   .dropdown-caret-icon {
@@ -231,6 +241,21 @@
 @media screen and (max-width: 800px) {
   .create-an-event .plus-sign, .create-an-event .create-an-event-link a {
     display: none;
+  }
+
+  .login-link, .signup-link {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .event-list-ticket-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .search-bar {
+    width: 250px;
   }
 }
 

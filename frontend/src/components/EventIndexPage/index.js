@@ -7,6 +7,7 @@ import HomeImage from "../../assets/eventbrite_home.jpg";
 import { TfiTicket } from 'react-icons/tfi';
 import GitHubIcon from "../../assets/GithubMark.png";
 import LinkedInIcon from "../../assets/LinkedinLogo.png";
+import HomePageMobile from "../../assets/homePageMobile.png";
 
 function EventIndexPage() {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ function EventIndexPage() {
     <>
     <div className="event-index-page">
       <div className="header-image">
-        <img src={HomeImage} alt="home" />
+        <img className="desktop" src={HomeImage} alt="home" />
+        <img className="mobile" src={HomePageMobile} alt="home mobile" />
       </div>
 
       <div className="event-list-container">
