@@ -27,17 +27,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
   const [dateField, setDateField] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(`eventTicketId: ${eventTicketId}`);
-  console.log(`eventId: ${eventId}`);
-
   const ticket = useSelector(state => eventTicketId ? Object.values(state.tickets).find(item => item.eventTicketId === eventTicketId) : null);
-  console.log("ticket (event ticket)", ticket, ticketId);
-
-  // useEffect(()=> {
-  //   if (ticketId) {
-  //     dispatch(fetchTicket(ticketId));
-  //   }
-  // }, [dispatch, ticketId]);
 
   useEffect(() => {
     if (ticket) {

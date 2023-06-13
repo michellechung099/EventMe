@@ -59,7 +59,10 @@ function ManageMyEvents() {
 
         <div className="manage-my-events-main">
           <div className="manage-my-events-event">
-            <h3 className="manage-my-events-title">Events</h3>
+            <div className="manage-my-events-create-event">
+
+            </div>
+            <h3 className="manage-my-events-title">Event</h3>
             <ul className="list">
               {userEvents.map((event) => (
                 <li key={event.id} className="event-container">

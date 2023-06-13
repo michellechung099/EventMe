@@ -148,11 +148,12 @@
 
 .manage-my-events-title {
   background-color: #F8F7FA;
-  font-weight: 300;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 14px;
   padding-left: 24px;
   padding-right: 24px;
   line-height: 2.5;
+  color: #39364F;
 }
 
 .manage-my-events-event {

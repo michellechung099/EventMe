@@ -22,8 +22,6 @@ function TicketPurchaseForm({eventTicketId, totalQuantity}) {
     dispatch(fetchEvent(eventId));
   }, [dispatch])
 
-  console.log(`eventTicketId in purchase ticket form: ${eventTicketId}`);
-
   const handlePurchaseSubmit = (e) => {
     e.preventDefault();
     if (quantity <= 0) {
