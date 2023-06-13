@@ -33,6 +33,19 @@ function ManageMyEvents() {
     return formatter.format(date);
   }
 
+  function formatDateDescriptive(dateString) {
+    const date = new Date(dateString);
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        timeZoneName: 'short'
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+}
+
   const handleDelete = (e, eventId) => {
     e.preventDefault();
     dispatch(deleteEvent(eventId));
@@ -59,9 +72,6 @@ function ManageMyEvents() {
 
         <div className="manage-my-events-main">
           <div className="manage-my-events-event">
-            <div className="manage-my-events-create-event">
-
-            </div>
             <h3 className="manage-my-events-title">Event</h3>
             <ul className="list">
               {userEvents.map((event) => (
@@ -76,7 +86,7 @@ function ManageMyEvents() {
                       </div>
                       <div className="user-event-title">
                         <h1>{event.title}</h1>
-                        <p className="user-event-description">{event.description}</p>
+                        <p className="user-event-description">{formatDateDescriptive(event.startTime)}</p>
                         <p className="user-event-ticket-quantity">ticket quantity: {event.ticketQuantity}</p>
                       </div>
                     </div>
