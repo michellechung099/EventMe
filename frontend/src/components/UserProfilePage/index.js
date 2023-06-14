@@ -32,6 +32,10 @@ function UserProfilePage () {
   }, [currentUser, history]);
 
   function formatDate(dateString) {
+    if (!dateString) {
+      return "";
+    }
+
     const date = new Date(dateString);
     const formatter = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric" });
     return formatter.format(date);
@@ -89,25 +93,25 @@ function UserProfilePage () {
               <li key={ticket.id} className="ticket-container">
                 <div className="user-ticket-left">
                   <div className="user-ticket-event-date">
-                    {formatDate(ticket?.event.startTime)}
+                    {formatDate(ticket?.event?.startTime)}
                   </div>
                   <div className="user-ticket-event-info">
                     <div className="user-ticket-event-image">
-                      <img src={ticket.event.photoUrl} />
+                      <img src={ticket.event?.photoUrl} />
                     </div>
                     <div className="user-ticket-event-title">
-                      <h1>{ticket.event.title}</h1>
+                      <h1>{ticket.event?.title}</h1>
                       {/* <p className="user-ticket-mobile-event-date">{formatDate(ticket.event.startTime)}</p> */}
-                      <p className="user-ticket-event-date-details">{formatDateDescriptive(ticket.event.startTime)}</p>
+                      <p className="user-ticket-event-date-details">{ticket.event ? formatDateDescriptive(ticket.event.startTime) : ""}</p>
                       <p className="user-ticket-quantity">ticket quantity: {ticket.quantity}</p>
                     </div>
                   </div>
                 </div>
                 <div className="user-ticket-right">
-                  <MdMoreVert onClick={() => toggleDropdown(ticket.event.id)}/>
-                    {showDropdown === ticket.event.id && (
+                  <MdMoreVert onClick={() => toggleDropdown(ticket.event?.id)}/>
+                    {showDropdown === ticket.event?.id && (
                       <div className="user-ticket-right-ellipsis-dropdown">
-                        <button onClick={(e) => handleDelete(e, ticket.event.id, ticket.id)}>Request a refund</button>
+                        <button onClick={(e) => handleDelete(e, ticket.event?.id, ticket.id)}>Request a refund</button>
                       </div>
                     )}
                 </div>

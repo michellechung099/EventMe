@@ -18,14 +18,6 @@ export const addEvent = event => ({
   event
 })
 
-// export const setUserEvents = userEvents => {
-//   const eventsArray = Object.values(userEvents);
-//   return {
-//     type: SET_USER_EVENTS,
-//     userEvents: eventsArray,
-//   };
-// };
-
 export const removeEvent = eventId => ({
   type: REMOVE_EVENT,
   eventId
@@ -39,6 +31,16 @@ export const removeUserEvent = eventId => ({
 // thunk action creators
 export const fetchEvents = () => async(dispatch) => {
   const response = await csrfFetch(`/api/events`);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setEvents(data.events));
+    return response;
+  }
+}
+
+export const fetchEventsWithSearchParams = (query) => async(dispatch) => {
+  const response = await csrfFetch(`/api/events?query=${query}`);
 
   if (response.ok) {
     const data = await response.json();
@@ -88,10 +90,6 @@ export const createEvent = event => async(dispatch) => {
 
 export const updateEvent = (event, eventId) => async (dispatch) => {
   const formData = new FormData();
-
-  // Object.keys(event).forEach((key) => {
-  //   formData.append(key, event[key]);
-  // });
 
   const response = await csrfFetch(`/api/events/${eventId}`, {
     method: 'PATCH',

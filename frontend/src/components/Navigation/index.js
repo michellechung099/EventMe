@@ -40,16 +40,15 @@ function Navigation() {
           <NavLink exact to="/">
             <h1 className="logo">eventme</h1>
           </NavLink>
-          <div className="search-bar">
+          {/* <div className="search-bar">
             <div className="icon">
               <AiOutlineSearch className="search-icon"/>
             </div>
             <div className="search">
               <input type="text" placeholder="Search events" className="search-input" />
             </div>
-          </div>
+          </div> */}
         </div>
-
 
         <div className="right-side-nav">
           <div className="create-an-event">

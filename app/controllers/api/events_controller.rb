@@ -4,7 +4,11 @@ class Api::EventsController < ApplicationController
 
   def index
     # render all events under a key of events
-    @events = Event.all
+    @events = if params[:query].present?
+      Event.where('title ILIKE ?', "%#{params[:query]}%")
+    else
+      Event.all
+    end
     render 'api/events/index'
   end
 

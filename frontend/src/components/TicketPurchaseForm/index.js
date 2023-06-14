@@ -4,15 +4,12 @@ import { useInput } from '../../hooks';
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect } from 'react';
 import { fetchEvent } from '../../store/events';
-import { updateTicket } from '../../store/tickets';
 import { createTicket } from '../../store/tickets';
 import { useState } from 'react';
 
 function TicketPurchaseForm({eventTicketId, totalQuantity}) {
   const sessionUser = useSelector(state => state.session.user)
-  const { eventId, ticketId } = useParams();
-  const event = useSelector(state => state.events[eventId])
-  const ticket = useSelector(state => state.tickets[ticketId])
+  const { eventId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
   const [quantity, onQuantityChange] = useInput(0);
@@ -49,7 +46,6 @@ function TicketPurchaseForm({eventTicketId, totalQuantity}) {
             />
           </label>
         </div>
-
 
         <div className="checkout">
           {errorMessage && <div className="error-message">{errorMessage}</div>}

@@ -19,7 +19,7 @@
   /* display: flex; */
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 10px 1rem;
   /* margin-top: 200px; */
   box-sizing: border-box;
   overflow: hidden;
@@ -100,6 +100,11 @@
 
 .header-image > img.mobile {
   display: none;
+}
+
+.search-bar {
+  margin-top: 10px;
+  margin-left: 15px;
 }
 
 @media screen and (max-width: 800px) {
