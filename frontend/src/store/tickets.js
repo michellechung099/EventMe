@@ -3,6 +3,7 @@ import { fetchUserEvents } from "./events";
 
 //action constants
 const SET_TICKETS = 'tickets/setTickets';
+const SET_EVENT_TICKETS = 'tickets/setEventTickets';
 const SET_TICKET = 'tickets/setTicket'
 const ADD_TICKET = 'tickets/addTicket';
 const REMOVE_TICKET = 'tickets/removeTicket';
@@ -28,6 +29,12 @@ export const removeTicket = ticketId => ({
   ticketId
 })
 
+export const setEventTickets = (eventId, tickets) => ({
+  type: SET_EVENT_TICKETS,
+  eventId,
+  tickets,
+});
+
 //thunk action creators
 export const fetchTickets = () => async(dispatch) => {
   const response = await csrfFetch(`/api/tickets`);
@@ -48,6 +55,16 @@ export const fetchTicket = ticketId => async(dispatch) => {
     return response;
   }
 }
+
+export const fetchEventTickets = (eventId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/events/${eventId}/event_tickets`);
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(setEventTickets(eventId, data.tickets));
+    return response;
+  }
+};
 
 export const createTicket = (eventId, ticket) => async(dispatch) => {
   const response = await csrfFetch(`/api/events/${eventId}/tickets`, {
@@ -80,6 +97,7 @@ export const createEventTicket = (eventId, eventTicket) => async(dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(addTicket(data.ticket));
+    dispatch(fetchUserEvents());
 
     return response;
   }
@@ -142,6 +160,8 @@ function ticketReducer(state={}, action) {
     case SET_TICKET:
       const updatedTicket = {...state[action.ticket.id], ...action.ticket};
       return {...state, [action.ticket.id]: updatedTicket };
+    case SET_EVENT_TICKETS:
+      return {...state, [action.eventId]: action.tickets};
     default:
       return state;
   }

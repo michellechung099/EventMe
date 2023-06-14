@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useInput } from "../../hooks";
-import { createEventTicket, updateEventTicket } from '../../store/tickets';
+import { createEventTicket, updateEventTicket, fetchEventTickets } from '../../store/tickets';
 import './TicketForm.css'
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -12,9 +12,7 @@ import { DateRange } from 'react-date-range';
 import Modal from 'react-modal';
 
 function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
-  // const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  // const { eventId, ticketId } = useParams();
   const { ticketId } = useParams();
   const currentUser = useSelector(state => state.session.user);
   const history = useHistory();
@@ -28,22 +26,32 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const ticket = useSelector(state => eventTicketId ? Object.values(state.tickets).find(item => item.eventTicketId === eventTicketId) : null);
+  console.log("event ticket", ticket);
+  console.log("event ticket id", eventTicketId);
+  console.log("event id:", eventId);
 
   useEffect(() => {
-    if (ticket) {
-      const salesStart = new Date(ticket?.salesStartTime);
+    dispatch(fetchEventTickets(eventId));
+  }, [dispatch, eventId]);
+
+  const eventTickets = useSelector(state => state.tickets[eventId]);
+  const eventTicketObjects = eventTickets? Object.values(eventTickets) : null;
+  const lastEventTicket = eventTicketObjects[eventTicketObjects.length - 1]
+
+  useEffect(() => {
+    if (lastEventTicket) {
+      const salesStart = new Date(lastEventTicket?.salesStartTime);
       const updateSalesStart = new Date(salesStart);
-      const salesEnd = new Date(ticket?.salesEndTime);
+      const salesEnd = new Date(lastEventTicket?.salesEndTime);
       const updateSalesEnd = new Date(salesEnd);
 
-      setName(ticket?.name);
-      setUnitPrice(ticket?.unitPrice);
-      setQuantity(ticket?.eventTicketQuantity);
+      setName(lastEventTicket?.name);
+      setUnitPrice(lastEventTicket?.unitPrice);
+      setQuantity(lastEventTicket?.quantity);
       setSalesStartTime(updateSalesStart);
       setSalesEndTime(updateSalesEnd);
     }
-  }, [ticket])
-  // i need to pre-populate the form with ticket data when the user is updating the form
+  }, [lastEventTicket])
 
   const handleDateChange = (ranges) => {
     const start = ranges.selection.startDate;
@@ -60,7 +68,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
 
   const customStyles = {
     content: {
-      zIndex: '300', // Increase this value to be higher than #modal-content's z-index
+      zIndex: '300',
       width: '400px',
       height: '400px',
       position: 'absolute',
@@ -68,7 +76,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
       left: '38.2%',
     },
     overlay: {
-      zIndex: '150', // ensure it is less than content's zIndex but higher than #modal-background's z-index
+      zIndex: '150',
     },
   };
 

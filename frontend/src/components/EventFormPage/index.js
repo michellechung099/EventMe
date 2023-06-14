@@ -139,6 +139,20 @@ function EventFormPage() {
 
   const timeOptions = getTimeOptions();
 
+  const customStyles = {
+    content: {
+      zIndex: '300',
+      width: '400px',
+      height: '400px',
+      position: 'absolute',
+      top: '28%',
+      left: '38.2%',
+    },
+    overlay: {
+      zIndex: '150',
+    },
+  };
+
   const [errors, onSubmit] = useSubmit({
     createAction: () => {
       const formData = new FormData();
@@ -349,6 +363,7 @@ function EventFormPage() {
             contentLabel="Date Range Picker Modal"
             isOpen={isModalOpen}
             onRequestClose={() => setIsModalOpen(false)}
+            style={customStyles}
           >
             <DateRange
               ranges={[{

@@ -44,7 +44,7 @@ function ManageMyEvents() {
         timeZoneName: 'short'
     };
     return new Intl.DateTimeFormat('en-US', options).format(date);
-}
+  }
 
   const handleDelete = (e, eventId) => {
     e.preventDefault();

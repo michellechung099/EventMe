@@ -22,10 +22,6 @@ function UserProfilePage () {
     dispatch(fetchTickets())
   }, [dispatch]);
 
-  // useEffect(()=> {
-  //   dispatch(updateTicket(eventId, ticketId, quantity))
-  // }, [dispatch])
-
   useEffect(() => {
     if (!currentUser) {
       history.push("/");
@@ -36,6 +32,20 @@ function UserProfilePage () {
     const date = new Date(dateString);
     const formatter = new Intl.DateTimeFormat("en-US", { month: "long", day: "numeric" });
     return formatter.format(date);
+  }
+
+  function formatDateDescriptive(dateString) {
+    const date = new Date(dateString);
+    const options = {
+        weekday: 'short',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        timeZoneName: 'short'
+    };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
   }
 
   const handleClick = (e, eventId) => {
@@ -63,7 +73,7 @@ function UserProfilePage () {
               <li key={ticket.id} className="ticket-container">
                 <div className="user-ticket-left">
                   <div className="user-ticket-event-date">
-                    {formatDate(ticket.event.startTime)}
+                    {formatDate(ticket?.event.startTime)}
                   </div>
                   <div className="user-ticket-event-info">
                     <div className="user-ticket-event-image">
@@ -71,8 +81,8 @@ function UserProfilePage () {
                     </div>
                     <div className="user-ticket-event-title">
                       <h1>{ticket.event.title}</h1>
-                      <p className="user-ticket-mobile-event-date">{formatDate(ticket.event.startTime)}</p>
-                      <p className="user-ticket-event-description">{ticket.event.description}</p>
+                      {/* <p className="user-ticket-mobile-event-date">{formatDate(ticket.event.startTime)}</p> */}
+                      <p className="user-ticket-event-date-details">{formatDateDescriptive(ticket.event.startTime)}</p>
                       <p className="user-ticket-quantity">ticket quantity: {ticket.quantity}</p>
                     </div>
                   </div>

@@ -60,15 +60,16 @@
 }
 
 .ticket-container {
-  height: 100px;
+  height: 130px;
   width: 100%;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  padding: 12px;
 }
 
 .user-ticket-left {
   height: 100%;
-  width: 80%;
+  width: 90%;
   display: flex;
 }
 
@@ -97,11 +98,11 @@
 
 .user-ticket-event-info {
   display: flex;
-  width: 80%;
+  width: 100%;
 }
 
 .user-ticket-event-title > h1 {
-  font-size: 14px;
+  font-size: 20px;
   margin: 1px;
 }
 
@@ -140,10 +141,7 @@
 
   .ticket-container {
     width: 100%;
-  }
-
-  .user-ticket-event-description {
-    display: none;
+    margin-bottom: 60px;
   }
 
   .user-ticket-left {
@@ -164,6 +162,14 @@
   }
 
   .user-ticket-quantity {
+    margin: 0;
+  }
+
+  .user-ticket-event-image > img {
+    max-width: 120px;
+  }
+
+  .tickets {
     margin: 0;
   }
 }
