@@ -69,7 +69,6 @@ export const createEventTicket = (eventId, eventTicket) => async(dispatch) => {
 }
 
 export const updateEventTicket = (eventId, eventTicketId, eventTicket) => async(dispatch) => {
-  console.log(`inside updateEventTicket API call...`);
   const response = await csrfFetch(`/api/events/${eventId}/event_tickets/${eventTicketId}`, {
     method: 'PATCH',
     headers: {

@@ -30,8 +30,6 @@ class Api::TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    puts "@ticket: #{@ticket.inspect}"
-    puts "ticket_params: #{ticket_params.inspect}"
     @event = Event.find(params[:event_id])
     @event.ticket_quantity -= params[:ticket][:quantity].to_i
     @event.save!

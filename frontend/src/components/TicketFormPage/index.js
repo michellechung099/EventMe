@@ -28,9 +28,6 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
   const [lastEventTicket, setLastEventTicket] = useState(null);
 
   const ticket = useSelector(state => eventTicketId ? Object.values(state.eventTickets).find(item => item.id === eventTicketId) : null);
-  console.log("event ticket", ticket);
-  console.log("event ticket id", eventTicketId);
-  console.log("event id:", eventId);
 
   useEffect(() => {
     dispatch(fetchEventTickets());
@@ -93,7 +90,6 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
       salesStartTime,
       salesEndTime,
     };
-    console.log(`inside handleTicketSubmit; eventId: ${eventId}`);
     if (eventTicketId) {
       dispatch(updateEventTicket(eventId, eventTicketId, newTicket));
     } else {
