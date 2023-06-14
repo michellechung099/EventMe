@@ -25,6 +25,8 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
   const [dateField, setDateField] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [lastEventTicket, setLastEventTicket] = useState(null);
+
   const ticket = useSelector(state => eventTicketId ? Object.values(state.tickets).find(item => item.eventTicketId === eventTicketId) : null);
   console.log("event ticket", ticket);
   console.log("event ticket id", eventTicketId);
@@ -35,8 +37,12 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
   }, [dispatch, eventId]);
 
   const eventTickets = useSelector(state => state.tickets[eventId]);
-  const eventTicketObjects = eventTickets? Object.values(eventTickets) : null;
-  const lastEventTicket = eventTicketObjects[eventTicketObjects.length - 1]
+
+  useEffect(() => {
+    const eventTicketObjects = eventTickets ? Object.values(eventTickets) : [];
+    const lastTicket = eventTicketObjects[eventTicketObjects.length - 1];
+    setLastEventTicket(lastTicket);
+  }, [eventId, eventTickets]);
 
   useEffect(() => {
     if (lastEventTicket) {
@@ -79,6 +85,12 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
       zIndex: '150',
     },
   };
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const formatter = new Intl.DateTimeFormat("en-US", { month: "numeric", day: "numeric", year: "numeric" });
+    return formatter.format(date);
+  }
 
   const handleTicketSubmit = (e) => {
     e.preventDefault();
@@ -142,7 +154,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
           <label>
             <input
               type="text"
-              value={format(salesStartTime, "MM/dd/yyyy")}
+              value={formatDate(salesStartTime)}
               // onChange={(e) => setSalesStartTime(e.target.value)}
               onClick={() => {
                 setDateField('start');
@@ -159,7 +171,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
               type="text"
               // value={salesEndTime}
               // onChange={(e)=>setSalesEndTime(e.target.value)}
-              value={format(salesEndTime, "MM/dd/yyyy")}
+              value={formatDate(salesEndTime)}
               onClick={()=> {
                 setDateField('end');
                 setIsModalOpen(true);
