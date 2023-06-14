@@ -102,10 +102,12 @@
 
 .user-ticket-event-title > h1 {
   font-size: 14px;
+  margin: 1px;
 }
 
 .user-ticket-event-title > p {
   font-size: 12px;
+  margin: 3px;
 }
 
 .user-ticket-event-title {
