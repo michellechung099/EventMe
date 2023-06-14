@@ -134,6 +134,47 @@
   display: none;
 }
 
+.user-ticket-right-ellipsis-dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-decoration: none;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  top: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 140px;
+}
+
+.user-ticket-right-ellipsis-dropdown button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #39364f;
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.user-ticket-right-ellipsis-dropdown button {
+  padding: 5px;
+  transition: background-color 0.2s;
+}
+
+.user-ticket-right-ellipsis-dropdown button:hover {
+  background-color: lightgrey;
+}
+
+.user-ticket-right {
+  position: relative;
+  display: inline-block;
+}
+
 @media screen and (max-width: 800px) {
   .tickets {
     margin-top: -7px;

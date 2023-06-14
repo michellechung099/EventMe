@@ -174,23 +174,23 @@ photo8 = URI.open('https://eventme-seeds.s3.us-west-1.amazonaws.com/frank-roland
 event8.photo.attach(io: photo8, filename:'frank-rolando-romero-ZHoOhrH-yVs-unsplash.jpg')
 
 event_ticket1 = EventTicket.create!({
-  event_id: 1,
+  event_id: event1.id,
   name: "general admission",
   unit_price: 0.00,
   quantity: 10,
   sales_start_time: '2023-05-15T04:00:00',
   sales_end_time: '2023-06-05T04:00:00',
-  user_id: 1
+  user_id: User.first.id
 })
 
 event_ticket2 = EventTicket.create!({
-  event_id: 2,
+  event_id: event2.id,
   name: "general admission",
   unit_price: 0.00,
   quantity: 50,
   sales_start_time: '2023-06-07T14:30:00',
   sales_end_time: '2023-07-20T14:30:00',
-  user_id: 2
+  user_id: User.second.id
 })
 
 event_ticket3 = EventTicket.create!({
@@ -255,6 +255,6 @@ event_ticket8 = EventTicket.create!({
 
 ticket1 = Ticket.create!({
   quantity: 1,
-  buyer_id: 1,
-  event_ticket_id: 1
+  buyer_id: User.first.id,
+  event_ticket_id: event_ticket1.id
 })

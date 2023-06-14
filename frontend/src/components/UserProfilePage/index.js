@@ -5,9 +5,10 @@ import { useEffect } from "react";
 import { deleteEvent, fetchUserEvents } from "../../store/events";
 import stockPhoto from '../../assets/imagePlaceholder.png'
 import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { updateTicket, fetchTickets } from "../../store/tickets";
+import { updateTicket, fetchTickets, deleteTicket } from "../../store/tickets";
 import { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { MdMoreVert } from 'react-icons/md';
 
 function UserProfilePage () {
   const { eventId } = useParams();
@@ -16,6 +17,8 @@ function UserProfilePage () {
   const userEvents = useSelector(state => state.events ? Object.values(state.events) : []);
   const tickets = useSelector(state => state.tickets ? Object.values(state.tickets) : []);
   const history = useHistory();
+
+  const [showDropdown, setShowDropdown] = useState(null);
 
   useEffect(()=> {
     dispatch(fetchUserEvents())
@@ -53,6 +56,19 @@ function UserProfilePage () {
     dispatch(deleteEvent(eventId));
   }
 
+  const handleDelete = (e, eventId, ticketId) => {
+    e.preventDefault();
+    dispatch(deleteTicket(eventId, ticketId));
+  }
+
+  const toggleDropdown = (id) => {
+    if (showDropdown === id) {
+      setShowDropdown(null);
+    } else {
+      setShowDropdown(id);
+    }
+  }
+
   return (
     <>
       <div className="user-profile">
@@ -86,6 +102,14 @@ function UserProfilePage () {
                       <p className="user-ticket-quantity">ticket quantity: {ticket.quantity}</p>
                     </div>
                   </div>
+                </div>
+                <div className="user-ticket-right">
+                  <MdMoreVert onClick={() => toggleDropdown(ticket.event.id)}/>
+                    {showDropdown === ticket.event.id && (
+                      <div className="user-ticket-right-ellipsis-dropdown">
+                        <button onClick={(e) => handleDelete(e, ticket.event.id, ticket.id)}>Request a refund</button>
+                      </div>
+                    )}
                 </div>
               </li>
             ))}

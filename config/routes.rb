@@ -15,9 +15,13 @@ Rails.application.routes.draw do
     resources :events, only: [:create, :update, :destroy, :index, :show] do
       resources :tickets, only: [:index, :purchased_tickets, :show, :create, :update, :destroy]
       resources :event_tickets, only: %i[index show create update]
+      collection do
+        get :search
+      end
     end
     get 'user/events/user_events', to: 'events#user_events'
     get '/tickets', to: 'tickets#index'
+    get '/event_tickets', to: 'event_tickets#index'
     get '/tickets/purchased_tickets', to: 'tickets#purchased_tickets'
     delete '/events/:id', to: 'events#destroy'
   end

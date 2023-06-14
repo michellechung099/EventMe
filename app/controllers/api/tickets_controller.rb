@@ -51,7 +51,12 @@ class Api::TicketsController < ApplicationController
 
   def destroy
     @ticket = Ticket.find(params[:id])
-    @ticket.destroy
+    if (@ticket.buyer_id == current_user.id) && @ticket
+      @ticket.destroy
+      render json: { message: 'Ticket deleted successfully' }, status: 200
+    else
+      render json: { message: 'Ticket not found' }, status: 404
+    end
   end
 
   def update

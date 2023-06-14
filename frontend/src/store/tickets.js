@@ -29,12 +29,6 @@ export const removeTicket = ticketId => ({
   ticketId
 })
 
-export const setEventTickets = (eventId, tickets) => ({
-  type: SET_EVENT_TICKETS,
-  eventId,
-  tickets,
-});
-
 //thunk action creators
 export const fetchTickets = () => async(dispatch) => {
   const response = await csrfFetch(`/api/tickets`);
@@ -56,16 +50,6 @@ export const fetchTicket = ticketId => async(dispatch) => {
   }
 }
 
-export const fetchEventTickets = (eventId) => async(dispatch) => {
-  const response = await csrfFetch(`/api/events/${eventId}/event_tickets`);
-
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(setEventTickets(eventId, data.tickets));
-    return response;
-  }
-};
-
 export const createTicket = (eventId, ticket) => async(dispatch) => {
   const response = await csrfFetch(`/api/events/${eventId}/tickets`, {
     method: 'POST',
@@ -84,44 +68,6 @@ export const createTicket = (eventId, ticket) => async(dispatch) => {
   }
 };
 
-export const createEventTicket = (eventId, eventTicket) => async(dispatch) => {
-  const response = await csrfFetch(`/api/events/${eventId}/event_tickets`, {
-    method: 'POST',
-    headers: {
-      "Content-Type": "application/json",
-      "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
-    },
-    body: JSON.stringify({eventTicket})
-  });
-
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(addTicket(data.ticket));
-    dispatch(fetchUserEvents());
-
-    return response;
-  }
-}
-
-export const updateEventTicket = (eventId, eventTicketId, eventTicket) => async(dispatch) => {
-  const response = await csrfFetch(`/api/events/${eventId}/event_tickets/${eventTicketId}`, {
-    method: 'PATCH',
-    headers: {
-      "Content-Type": "application/json",
-      "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
-    },
-    body: JSON.stringify({eventTicket})
-  });
-
-  if (response.ok) {
-    const data = await response.json();
-    dispatch(addTicket(data.ticket));
-    dispatch(fetchUserEvents());
-
-    return response;
-  }
-}
-
 export const updateTicket = (eventId, ticketId, quantity) => async(dispatch) => {
   const response = await csrfFetch(`/api/events/${eventId}/tickets/${ticketId}`, {
     method: 'PATCH',
@@ -139,16 +85,17 @@ export const updateTicket = (eventId, ticketId, quantity) => async(dispatch) => 
   }
 }
 
-// export const deleteTicket = ticketId => async (dispatch) => {
-//   const response = await csrfFetch(`api/events/${eventId}/tickets/${ticketId}`, {
-//     method: 'DELETE'
-//   })
+export const deleteTicket = (eventId, ticketId) => async (dispatch) => {
+  const response = await csrfFetch(`/api/events/${eventId}/tickets/${ticketId}`, {
+    method: 'DELETE'
+  })
 
-//   if (response.ok) {
-//     dispatch()
-//   }
+  if (response.ok) {
+    dispatch(removeTicket(ticketId));
+    return response;
+  }
 
-// }
+}
 
 function ticketReducer(state={}, action) {
   switch (action.type) {
@@ -162,6 +109,11 @@ function ticketReducer(state={}, action) {
       return {...state, [action.ticket.id]: updatedTicket };
     case SET_EVENT_TICKETS:
       return {...state, [action.eventId]: action.tickets};
+    case REMOVE_TICKET:
+      const ticketId = action.ticketId;
+      const newState = {...state};
+      delete newState[ticketId];
+      return newState;
     default:
       return state;
   }

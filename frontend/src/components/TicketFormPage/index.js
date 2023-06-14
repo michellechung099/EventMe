@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useInput } from "../../hooks";
-import { createEventTicket, updateEventTicket, fetchEventTickets } from '../../store/tickets';
+import { fetchEventTickets, createEventTicket, updateEventTicket } from '../../store/eventTickets';
 import './TicketForm.css'
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
@@ -27,37 +27,29 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
 
   const [lastEventTicket, setLastEventTicket] = useState(null);
 
-  const ticket = useSelector(state => eventTicketId ? Object.values(state.tickets).find(item => item.eventTicketId === eventTicketId) : null);
+  const ticket = useSelector(state => eventTicketId ? Object.values(state.eventTickets).find(item => item.id === eventTicketId) : null);
   console.log("event ticket", ticket);
   console.log("event ticket id", eventTicketId);
   console.log("event id:", eventId);
 
   useEffect(() => {
-    dispatch(fetchEventTickets(eventId));
-  }, [dispatch, eventId]);
-
-  const eventTickets = useSelector(state => state.tickets[eventId]);
+    dispatch(fetchEventTickets());
+  }, [dispatch]);
 
   useEffect(() => {
-    const eventTicketObjects = eventTickets ? Object.values(eventTickets) : [];
-    const lastTicket = eventTicketObjects[eventTicketObjects.length - 1];
-    setLastEventTicket(lastTicket);
-  }, [eventId, eventTickets]);
-
-  useEffect(() => {
-    if (lastEventTicket) {
-      const salesStart = new Date(lastEventTicket?.salesStartTime);
+    if (ticket) {
+      const salesStart = new Date(ticket?.salesStartTime);
       const updateSalesStart = new Date(salesStart);
-      const salesEnd = new Date(lastEventTicket?.salesEndTime);
+      const salesEnd = new Date(ticket?.salesEndTime);
       const updateSalesEnd = new Date(salesEnd);
 
-      setName(lastEventTicket?.name);
-      setUnitPrice(lastEventTicket?.unitPrice);
-      setQuantity(lastEventTicket?.quantity);
+      setName(ticket?.name);
+      setUnitPrice(ticket?.unitPrice);
+      setQuantity(ticket?.quantity);
       setSalesStartTime(updateSalesStart);
       setSalesEndTime(updateSalesEnd);
     }
-  }, [lastEventTicket])
+  }, [ticket])
 
   const handleDateChange = (ranges) => {
     const start = ranges.selection.startDate;
@@ -101,6 +93,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
       salesStartTime,
       salesEndTime,
     };
+    console.log(`inside handleTicketSubmit; eventId: ${eventId}`);
     if (eventTicketId) {
       dispatch(updateEventTicket(eventId, eventTicketId, newTicket));
     } else {

@@ -17,7 +17,7 @@ class Api::EventTicketsController < ApplicationController
     @ticket = EventTicket.new(event_ticket_params)
     @ticket.user_id = current_user.id
     @ticket.event_id = params[:event_id]
-    @event.ticket_quantity += params[:event_ticket][:quantity].to_i
+    @event.ticket_quantity = params[:event_ticket][:quantity].to_i
     @event.save!
 
     if @ticket.save!
