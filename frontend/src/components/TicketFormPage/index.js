@@ -104,7 +104,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
     <form onSubmit={handleTicketSubmit}>
       <div className="create-ticket-form-container">
         <div className="ticket-header">
-          <h1>{ticketId ? 'Edit Tickets': 'Add tickets'}</h1>
+          <h1>{ticket ? 'Edit Tickets': 'Add tickets'}</h1>
         </div>
         <div className="ticket-name">
           <label>
