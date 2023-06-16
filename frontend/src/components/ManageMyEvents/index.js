@@ -99,10 +99,10 @@ function ManageMyEvents() {
                             }}>Add Tickets</div>
                             {/* <div className="add-ticket-link" onClick={() => { setShowTicketModal(true); setEventId(event.id); setEventTicketId(event.eventTicketId);
                             }}>Edit Tickets</div> */}
-                            <NavLink to={`/events/${event.id}/eventTickets`}>View Tickets</NavLink>
-                            <button onClick={(e) => handleDelete(e, event.id)}>Delete Event</button>
-                            <NavLink to={`/events/${event.id}/update`}>Edit Event</NavLink>
-                            <NavLink to={`/events/${event.id}`}>View Event</NavLink>
+                            <NavLink className="dropdown-edit-link" to={`/events/${event.id}/eventTickets`}>View Tickets</NavLink>
+                            <button className="delete-event-link" onClick={(e) => handleDelete(e, event.id)}>Delete Event</button>
+                            <NavLink className="edit-event-link" to={`/events/${event.id}/update`}>Edit Event</NavLink>
+                            <NavLink className="view-event-link" to={`/events/${event.id}`}>View Event</NavLink>
                           </div>
                       )}
                   </div>

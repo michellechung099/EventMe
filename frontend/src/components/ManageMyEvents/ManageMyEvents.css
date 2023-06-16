@@ -9,26 +9,29 @@
   z-index: 1;
   right: 0;
   top: 16px;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  border: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   padding: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 210px;
 }
 
 .add-ticket-link {
   display: block;
   color: #39364f;
-  padding: 5px;
+  padding: 16px 24px;
   transition: background-color 0.2s;
+  font-size: 14px;
 }
 
 .add-ticket-link:hover {
-  background-color: lightgrey;
+  background-color: #f8f7fa;
 }
 
 .event-right-ellipsis-dropdown a {
   display: block;
   color: #39364f;
+  font-size: 14px;
 }
 
 .event-right-ellipsis-dropdown button {
@@ -39,17 +42,19 @@
   font-size: inherit;
   padding: 0;
   margin: 0;
+  text-align: left;
+  font-size: 14px;
 }
 
 .event-right-ellipsis-dropdown a,
 .event-right-ellipsis-dropdown button {
-  padding: 5px;
+  padding: 16px 24px;
   transition: background-color 0.2s;
 }
 
 .event-right-ellipsis-dropdown a:hover,
 .event-right-ellipsis-dropdown button:hover {
-  background-color: lightgrey;
+  background-color: #f8f7fa;
 }
 
 .event-right {
