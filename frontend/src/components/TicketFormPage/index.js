@@ -30,7 +30,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
   const ticket = useSelector(state => eventTicketId ? Object.values(state.eventTickets).find(item => item.id === eventTicketId) : null);
 
   useEffect(() => {
-    dispatch(fetchEventTickets());
+    dispatch(fetchEventTickets(eventId));
   }, [dispatch]);
 
   useEffect(() => {
@@ -96,7 +96,7 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
       dispatch(createEventTicket(eventId, newTicket));
     }
     closeTicketModal();
-    history.push(`/users/${currentUser.id}/events`);
+    history.push(`/events/${eventId}/eventTickets`);
   };
 
   // I need to change ticket-header name to Edit tickets when updating the tickets
@@ -140,6 +140,9 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
           </label>
         </div>
         <div className="ticket-sales">
+          <div className="sales-start-time-text">
+            <p>sales start time</p>
+          </div>
           <label>
             <input
               type="text"
@@ -155,6 +158,9 @@ function TicketFormPage({eventId, eventTicketId, closeTicketModal}) {
           </label>
         </div>
         <div className="ticket-sales-end">
+          <div className="sales-end-time-text">
+            <p>sales end time</p>
+          </div>
           <label>
             <input
               type="text"

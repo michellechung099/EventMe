@@ -3,7 +3,7 @@ class Api::EventTicketsController < ApplicationController
   wrap_parameters include: EventTicket.attribute_names
 
   def index
-    @tickets = EventTicket.where(user_id: current_user.id)
+    @tickets = EventTicket.where(event_id: params[:event_id], user_id: current_user.id)
     render 'api/event_tickets/index'
   end
 

@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.event-tickets-header {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  display: flex;
+  height: 56px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.event-tickets-header-title {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1E0A3C;
+  margin: 0 20px;
+}
+
+.list-of-event-tickets {
+  text-decoration: none;
+  padding: 0;
+}
+
+.admission-header {
+  margin-left: 10px;
+  width: 11%;
+  border-bottom: 2px solid #3659E3;
+  margin-top: 5%;
+}
+
+.admission {
+  color: #3659E3;
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}

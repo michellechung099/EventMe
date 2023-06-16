@@ -25,27 +25,6 @@
   margin-right: auto;
 }
 
-.search-bar {
-  display: flex;
-  background-color: #f8f7fa;
-  height: 46px !important;
-  align-items: center;
-  width: 400px;
-}
-
-.search-icon {
-  margin-left: 12px;
-  vertical-align: middle;
-}
-
-.search-input {
-  border: none;
-  outline: none;
-  background-color: #f8f7fa;
-  margin-left: 10px;
-  font-weight: 400;
-}
-
 .create-an-event {
  margin-right: 10px;
  padding: 5px;
@@ -190,10 +169,6 @@
   color:rgb(61, 100, 255);
 }
 
-/* .session-links:hover {
-  background-color:#f8f7fa;
-} */
-
 .manage-my-events-link {
   border-bottom: solid 1px lightgrey;
 }
@@ -260,25 +235,7 @@
   }
 }
 
-@media screen and (max-width: 685px) {
-  .search-bar {
-    width: 250px;
-  }
-}
-
 @media screen and (max-width: 500px){
-  .search-bar{
-    width: max-content;
-    background: none;
-    font-size: 30px;
-  }
-
-  .search-icon {
-    color: #6f7287;
-    width: 24px;
-    height: 24px;
-  }
-
   #user-icon {
     width: 24px;
     height: 24px;

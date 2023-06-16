@@ -29,8 +29,8 @@ export const removeEventTicket = eventTicketId => ({
 })
 
 //thunk action creators
-export const fetchEventTickets = () => async(dispatch) => {
-  const response = await csrfFetch(`/api/event_tickets`);
+export const fetchEventTickets = (eventId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/events/${eventId}/event_tickets`);
 
   if (response.ok) {
     const data = await response.json();
@@ -83,7 +83,7 @@ export const updateEventTicket = (eventId, eventTicketId, eventTicket) => async(
     // dispatch(addTicket(data.ticket));
     dispatch(fetchUserEvents());
     //dispatch(fetchEventTickets(eventId));
-    dispatch(fetchEventTickets())
+    dispatch(fetchEventTickets(eventId));
 
     return response;
   }

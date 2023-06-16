@@ -10,6 +10,7 @@ import TicketFormPage from "./components/TicketFormPage";
 import UserProfilePage from "./components/UserProfilePage";
 import TicketPurchaseForm from "./components/TicketPurchaseForm";
 import ManageMyEvents from "./components/ManageMyEvents";
+import EventTickets from "./components/ManageMyEvents/EventTickets";
 
 function App() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
         <Route exact path="/tickets/:eventId/new" component={TicketFormPage} />
         <Route exact path="/tickets/:eventId/update" component={TicketPurchaseForm} />
         <Route exact path="/events/:eventId" component={EventShowPage} />
+        <Route exact path="/events/:eventId/eventTickets" component={EventTickets} />
       </Switch>
     </>
   );

@@ -16,3 +16,4 @@ if event.photo.attached?
 end
 
 json.event_ticket_id event.event_tickets.last&.id
+json.ticket_quantity event.event_tickets.sum(&:quantity)

@@ -18,3 +18,17 @@
 .tickets-save .tickets-button {
   width: 100%;
 }
+
+.sales-start-time-text p, .sales-end-time-text p {
+  font-size: 10px;
+  margin: 0;
+  margin-left: 8px;
+}
+
+.ticket-sales-end {
+  margin-bottom: 5px;
+}
+
+.ticket-sales input, .ticket-sales-end input {
+  margin-top: 0;
+}
