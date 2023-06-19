@@ -88,21 +88,20 @@ Link: <a href="https://eventme.onrender.com/">EventMe</a>
   <img width="1261" alt="create-an-event" src="https://github.com/michellechung099/EventMe/assets/98190992/9eac8974-47d5-48cf-b484-3c6b6f68c496">
 
  - Update, delete, or view user created events
-  - On navigation bar, when user hovers over their username, there is a dropdown menu with a tab called "Manage my events." This page lists all the events that the user has created. on the right side of each event, there is an ellipsis dropdown. Upon click, user has an option to edit event, delete event, and view event.
+   - On navigation bar, when user hovers over their username, there is a dropdown menu with a tab called "Manage my events." This page lists all the events that the user has created. on the right side of each event, there is an ellipsis dropdown. Upon click, user has an option to edit event, delete event, and view event.
 
   <img width="1265" alt="manage-my-events" src="https://github.com/michellechung099/EventMe/assets/98190992/4aeb720e-53af-4924-a455-f3c31ed0ea4c">
 
  - Create tickets for the created events
     - On "Mangage my events" page, each event has an ellipsis dropdown that also has options to "Add Tickets" and "View Tickets." Clicking on "Add Tickets" opens a Modal to create new tickets for that event the user has created.
+    - Clicking on "View Tickets" shows all the tickets for that event the user has created. For each ticket, there is an ellipsis dropdown that lets the user "Edit" the ticket information.
 
   <img width="311" alt="add-tickets" src="https://github.com/michellechung099/EventMe/assets/98190992/bc645d60-8b61-47ad-8c94-2e94643bc59a">
-
-    - Clicking on "View Tickets" shows all the tickets for that event the user has created. For each ticket, there is an ellipsis dropdown that lets the user "Edit" the ticket information.
 
   <img width="1270" alt="event-tickets" src="https://github.com/michellechung099/EventMe/assets/98190992/c4300c6a-780b-4eea-9bcb-60e62b9c37c7">
 
  - Purchase tickets for the events
- On individual event page, there is a section where you can purchase tickets for that specific event. You can specify the quantity of the tickets you want to purchase for the event and click `get tickets` for purchase.
+ On individual event page, there is a section where you can purchase tickets for that specific event. You can specify the quantity of the tickets you want to purchase for the event and click "get tickets" for purchase.
 
  <img width="1220" alt="get-tickets" src="https://github.com/michellechung099/EventMe/assets/98190992/fd5cac55-9cfa-4ee3-9c3c-0a73c4ef9d69">
 
@@ -111,6 +110,7 @@ Link: <a href="https://eventme.onrender.com/">EventMe</a>
 
  <img width="1187" alt="purchased-tickets" src="https://github.com/michellechung099/EventMe/assets/98190992/a3713078-6c66-4129-8691-63369aec4660">
 ---
+
 ### Technologies, Libraries, APIs
 
  * `React` and `JavaScript` frontend with `CSS` styling and `Redux` for state management
