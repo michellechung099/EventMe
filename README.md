@@ -12,7 +12,6 @@ Users have CRUD functionalities for:
 
 Link: <a href="https://eventme.onrender.com/">EventMe</a>
 
-
 ---
 
 ### Functionality & MVPs
@@ -110,6 +109,8 @@ Link: <a href="https://eventme.onrender.com/">EventMe</a>
  On navigation bar, at "Manage my events" tab, there is also a "Tickets" tab. Clicking on this "Tickets" tab takes user to a page to view all the purchased tickets.
 
  <img width="1187" alt="purchased-tickets" src="https://github.com/michellechung099/EventMe/assets/98190992/a3713078-6c66-4129-8691-63369aec4660">
+
+
 ---
 
 ### Technologies, Libraries, APIs
