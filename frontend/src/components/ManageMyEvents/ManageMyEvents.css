@@ -22,6 +22,7 @@
   padding: 16px 24px;
   transition: background-color 0.2s;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .add-ticket-link:hover {
@@ -60,6 +61,10 @@
 .event-right {
   position: relative;
   display: inline-block;
+}
+
+.event-right svg {
+  cursor: pointer;
 }
 
 .list {

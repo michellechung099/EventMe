@@ -17,6 +17,7 @@
 
 .tickets-save .tickets-button {
   width: 100%;
+  cursor: pointer;
 }
 
 .sales-start-time-text p, .sales-end-time-text p {
