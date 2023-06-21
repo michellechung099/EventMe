@@ -63,7 +63,7 @@ event1.photo.attach(io: photo1, filename:'alessandro-cavestro-20HsmYeymbI-unspla
 
 event2= Event.create!({
   title: 'Peggy Gou 2023',
-  user_id: 2,
+  user_id: 1,
   event_type: 'Concert or Performance',
   category: 'Music',
   location: '99 Grove St, San Francisco, CA 94102',
@@ -79,7 +79,7 @@ event2.photo.attach(io: photo2, filename:'andre-benz-Yb-n0JHlsWY-unsplash.jpg');
 
 event3 = Event.create!({
   title: 'Software Engineers Networking Event',
-  user_id: 3,
+  user_id: 1,
   event_type: 'Meeting or Networking Event',
   category: 'Business and Professional',
   location: 'San Francisco',
@@ -95,7 +95,7 @@ event3.photo.attach(io: photo3, filename:'antenna-ZDN-G1xBWHY-unsplash.jpg')
 
 event4 = Event.create!({
   title: 'Comedy Night',
-  user_id: 3,
+  user_id: 1,
   event_type: 'Concert or Performance',
   category: 'Film, Media & Entertainment',
   location: 'San Francisco',
@@ -111,7 +111,7 @@ event4.photo.attach(io: photo4, filename:'call-me-fred-969TUssR2S4-unsplash.jpg'
 
 event5 = Event.create!({
   title: 'Pottery Class',
-  user_id: 5,
+  user_id: 1,
   event_type: 'Class, Training, or Workshop',
   category: 'Hobbies & Special Interest',
   location: 'San Francisco',
@@ -175,57 +175,77 @@ event8.photo.attach(io: photo8, filename:'frank-rolando-romero-ZHoOhrH-yVs-unspl
 
 event_ticket1 = EventTicket.create!({
   event_id: event1.id,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 0.00,
-  quantity: 10,
+  quantity: 100,
   sales_start_time: '2023-05-15T04:00:00',
   sales_end_time: '2023-06-05T04:00:00',
-  user_id: User.first.id
+  user_id: 1
 })
 
 event_ticket2 = EventTicket.create!({
+  event_id: event1.id,
+  name: "VIP",
+  unit_price: 10.00,
+  quantity: 50,
+  sales_start_time: '2023-05-15T04:00:00',
+  sales_end_time: '2023-06-05T04:00:00',
+  user_id: 1
+})
+
+event_ticket3 = EventTicket.create!({
   event_id: event2.id,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 0.00,
   quantity: 50,
   sales_start_time: '2023-06-07T14:30:00',
   sales_end_time: '2023-07-20T14:30:00',
-  user_id: User.second.id
+  user_id: 1
 })
 
-event_ticket3 = EventTicket.create!({
+event_ticket4 = EventTicket.create!({
+  event_id: event2.id,
+  name: "VIP",
+  unit_price: 10.00,
+  quantity: 50,
+  sales_start_time: '2023-06-07T14:30:00',
+  sales_end_time: '2023-07-20T14:30:00',
+  user_id: 1
+})
+
+event_ticket5 = EventTicket.create!({
   event_id: 3,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 10.00,
   quantity: 15,
   sales_start_time: '2023-05-01T15:00:00',
   sales_end_time: '2023-05-20T15:00:00',
-  user_id: 3
+  user_id: 1
 })
 
-event_ticket4 = EventTicket.create!({
+event_ticket6 = EventTicket.create!({
   event_id: 4,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 10.00,
   quantity: 15,
   sales_start_time: '2023-06-01T16:00:00',
   sales_end_time: '2023-06-20T16:00:00',
-  user_id: 3
+  user_id: 1
 })
 
-event_ticket5 = EventTicket.create!({
+event_ticket7 = EventTicket.create!({
   event_id: 5,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 10.00,
   quantity: 20,
   sales_start_time: '2023-04-01T13:30:00',
   sales_end_time: '2023-04-28T13:30:00',
-  user_id: 5
+  user_id: 1
 })
 
-event_ticket6 = EventTicket.create!({
+event_ticket8 = EventTicket.create!({
   event_id: 6,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 10.00,
   quantity: 10,
   sales_start_time: '2023-05-01T12:00:00',
@@ -233,9 +253,9 @@ event_ticket6 = EventTicket.create!({
   user_id: 5
 })
 
-event_ticket7 = EventTicket.create!({
+event_ticket9 = EventTicket.create!({
   event_id: 7,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 10.00,
   quantity: 8,
   sales_start_time: '2023-06-01T17:00:00',
@@ -243,9 +263,9 @@ event_ticket7 = EventTicket.create!({
   user_id: 7
 })
 
-event_ticket8 = EventTicket.create!({
+event_ticket10 = EventTicket.create!({
   event_id: 8,
-  name: "general admission",
+  name: "General Admission",
   unit_price: 10.00,
   quantity: 10,
   sales_start_time: '2023-04-15T14:00:00',
@@ -255,6 +275,12 @@ event_ticket8 = EventTicket.create!({
 
 ticket1 = Ticket.create!({
   quantity: 1,
-  buyer_id: User.first.id,
-  event_ticket_id: event_ticket1.id
+  buyer_id: 1,
+  event_ticket_id: 6
+})
+
+ticket2 = Ticket.create!({
+  quantity: 1,
+  buyer_id: 1,
+  event_ticket_id: 7
 })
