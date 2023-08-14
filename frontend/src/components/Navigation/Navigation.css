@@ -64,6 +64,10 @@
   display: flex;
 }
 
+.profile-right-side:hover {
+  background-color: #f8f7fa;
+}
+
 .profile-right-side a:hover, .profile-right-side .dropdown:hover .dropbtn {
   background-color: #f8f7fa;
 }
@@ -88,6 +92,7 @@
 
 .profile-dropdown > div {
   padding: 10px 5px;
+  cursor: pointer;
 }
 
 .profile-dropdown div:hover {
@@ -152,18 +157,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .create-an-event .plus-sign {
-  margin-top: 0.5vh;
-  font-size: 3.2vh;
+  margin-top: 1vh;
+  font-size: 2.5vh;
   color: rgb(61, 100, 255);
+  margin-bottom: 0.5vh;
 }
 
 .create-an-event .create-an-event-link {
-  font-size: 1.7vh;
-  margin-top: -2vh;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .create-an-event .create-an-event-link a{

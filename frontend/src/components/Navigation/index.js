@@ -52,10 +52,12 @@ function Navigation() {
 
         <div className="right-side-nav">
           <div className="create-an-event">
-            <div className="plus-sign">
-              <AiOutlinePlus />
-            </div>
-            <div className="create-an-event-link">
+            {sessionUser && (
+              <div className="plus-sign">
+                <AiOutlinePlus />
+              </div>
+            )}
+            <div className="create-an-event-link" style={{ marginTop: sessionUser ? '-1.5vh' : '2.5vh' }}>
               <NavLink exact to="/events/new">Create an event</NavLink>
             </div>
           </div>
