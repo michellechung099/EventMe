@@ -211,6 +211,7 @@
     align-items: center;
     margin-top: 20px;
     left: 30%;
+    display: none;
   }
 
   .search-input {
