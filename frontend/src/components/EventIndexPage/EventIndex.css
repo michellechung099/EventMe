@@ -123,6 +123,9 @@
 .search-icon {
   margin-left: 12px;
   vertical-align: middle;
+  fill: #a9a8b3;
+  height: 20px;
+  width: 20px;
 }
 
 .search-input {
